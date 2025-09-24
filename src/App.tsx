@@ -5,9 +5,9 @@ import {
   LoginInstructor,
   SignupInstructor,
 } from "./features/Auth/Instractor";
-import BrowseCourses from "./features/BrowseCourses/BrowseCourses";
+import BrowseCourses from "./features/student/BrowseCourses";
+import InstructorPage from "./features/instructor/InstructorPage";
 import { Layout, NotFound } from "./layout";
-import { InstructorPage } from "./features/InstructorPage";
 import Review from "./features/Khaled/Review/Review";
 import Revenue from "./features/Khaled/Revenue/Revenue";
 import { QueryClient } from "@tanstack/react-query";
