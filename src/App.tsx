@@ -1,13 +1,13 @@
 import { RouterProvider } from "react-router";
 import { createBrowserRouter } from "react-router";
 import {
-  ForgotPasswordInstractor,
-  LoginInstractor,
-  SignupInstractor,
+  ForgotPasswordInstructor,
+  LoginInstructor,
+  SignupInstructor,
 } from "./features/Auth/Instractor";
 import BrowseCourses from "./features/BrowseCourses/BrowseCourses";
 import { Layout, NotFound } from "./layout";
-import { InstractorPage } from "./features/InstractorPage";
+import { InstructorPage } from "./features/InstructorPage";
 
 const router = createBrowserRouter([
   {
@@ -16,13 +16,13 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { path: "/", element: <BrowseCourses /> },
-      { path: "/instractor/signup", element: <SignupInstractor /> },
-      { path: "/instractor/login", element: <LoginInstractor /> },
+      { path: "/instructor/signup", element: <SignupInstructor /> },
+      { path: "/instructor/login", element: <LoginInstructor /> },
       {
-        path: "/instractor/forgotpassword",
-        element: <ForgotPasswordInstractor />,
+        path: "/instructor/forgotpassword",
+        element: <ForgotPasswordInstructor />,
       },
-      { path: "/instractor/dashboard", element: <InstractorPage /> },
+      { path: "/instructor/dashboard", element: <InstructorPage /> },
       { path: "*", element: <NotFound /> },
     ],
   },
