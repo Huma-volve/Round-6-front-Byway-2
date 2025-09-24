@@ -8,6 +8,13 @@ import {
 import BrowseCourses from "./features/BrowseCourses/BrowseCourses";
 import { Layout, NotFound } from "./layout";
 import { InstructorPage } from "./features/InstructorPage";
+import Review from "./features/Khaled/Review/Review";
+import Revenue from "./features/Khaled/Revenue/Revenue";
+import { QueryClient } from "@tanstack/react-query";
+import { QueryClientProvider } from "@tanstack/react-query";
+
+
+const client = new QueryClient()
 
 const router = createBrowserRouter([
   {
@@ -23,13 +30,17 @@ const router = createBrowserRouter([
         element: <ForgotPasswordInstructor />,
       },
       { path: "/instructor/dashboard", element: <InstructorPage /> },
+      { path: "/instructors/Review", element: <Review /> },
+      { path: "/instructors/Revenue", element: <Revenue /> },
       { path: "*", element: <NotFound /> },
     ],
   },
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return <QueryClientProvider client={client}>
+    <RouterProvider router={router} />
+  </QueryClientProvider>;
 }
 
 export default App;
