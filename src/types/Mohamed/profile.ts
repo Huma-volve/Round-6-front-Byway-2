@@ -14,6 +14,7 @@ export type WorkExperience = {
   startDate: string;
   endDate: string;
 };
+
 // export type LinksProps ={
 //     id: string;
 //     jobTitle: string;

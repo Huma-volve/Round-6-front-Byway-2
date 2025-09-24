@@ -5,10 +5,10 @@ import {
   LoginInstructor,
   SignupInstructor,
 } from "./features/Auth/Instructor";
-import BrowseCourses from "./features/BrowseCourses/BrowseCourses";
 import { Layout, NotFound } from "./layout";
-import { InstructorPage } from "./features/Instructors/InstructorPage";
-import { Profile } from "./features/Instructors/Profile/Profile";
+import BrowseCourses from "./features/student/BrowseCourses";
+import InstructorPage from "./features/instructor/InstructorPage";
+import { Profile } from "./features/instructor/Profile/Profile";
 
 const router = createBrowserRouter([
   {
