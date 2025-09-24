@@ -1,13 +1,14 @@
 import { RouterProvider } from "react-router";
 import { createBrowserRouter } from "react-router";
 import {
-  ForgotPasswordInstractor,
-  LoginInstractor,
-  SignupInstractor,
-} from "./features/Auth/Instractor";
+  ForgotPasswordInstructor,
+  LoginInstructor,
+  SignupInstructor,
+} from "./features/Auth/Instructor";
 import BrowseCourses from "./features/BrowseCourses/BrowseCourses";
 import { Layout, NotFound } from "./layout";
-import { InstractorPage } from "./features/InstractorPage";
+import { InstructorPage } from "./features/Instructors/InstructorPage";
+import { Profile } from "./features/Instructors/Profile/Profile";
 
 const router = createBrowserRouter([
   {
@@ -16,13 +17,14 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { path: "/", element: <BrowseCourses /> },
-      { path: "/instractor/signup", element: <SignupInstractor /> },
-      { path: "/instractor/login", element: <LoginInstractor /> },
+      { path: "/Instructor/signup", element: <SignupInstructor /> },
+      { path: "/Instructor/login", element: <LoginInstructor /> },
       {
-        path: "/instractor/forgotpassword",
-        element: <ForgotPasswordInstractor />,
+        path: "/Instructor/forgotPassword",
+        element: <ForgotPasswordInstructor />,
       },
-      { path: "/instractor/dashboard", element: <InstractorPage /> },
+      { path: "/Instructor/dashboard", element: <InstructorPage /> },
+      { path: "/profile", element: <Profile /> },
       { path: "*", element: <NotFound /> },
     ],
   },
