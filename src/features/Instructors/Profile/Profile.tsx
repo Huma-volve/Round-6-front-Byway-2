@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import { FormField } from "@/components/ui/FormField";
 
 interface WorkExperience {
   id: string;
@@ -47,35 +48,29 @@ export const Profile = () => {
 
   return (
     <>
-      <div className="max-w-5xl m-auto min-h-screen mt-24">
+      <div className="max-w-6xl m-auto min-h-screen mt-24">
         <div className="p-4">
           <form className="space-y-8">
             {/* Personal Information Section */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-16">
-              <div className="grid w-full items-center gap-1">
-                <Label htmlFor="firstName">First Name</Label>
-                <Input type="text" id="firstName" placeholder="Label" />
-              </div>
-              <div className="grid w-full items-center gap-1">
-                <Label htmlFor="lastName">Last Name</Label>
-                <Input type="text" id="lastName" placeholder="Label" />
-              </div>
-              <div className="grid w-full items-center gap-1 md:col-span-2">
-                <Label htmlFor="headline">Headline</Label>
-                <Input type="text" id="headline" placeholder="Label" />
-              </div>
-              <div className="grid w-full items-center gap-1 md:col-span-2">
-                <Label htmlFor="about">About</Label>
-                <textarea
-                  id="about"
-                  placeholder="Label"
-                  className="min-h-[120px] w-full rounded-lg border border-gray-200 bg-transparent p-4 text-base shadow-xs transition-[color,box-shadow] outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] resize-none"
-                />
-              </div>
+              <FormField
+                id="firstName"
+                label="First Name"
+                placeholder="Label"
+              />
+              <FormField id="lastName" label="Last Name" placeholder="Label" />
+              <FormField id="headline" label="Headline" placeholder="Label" />
+              <FormField
+                id="about"
+                label="About"
+                type="textarea"
+                placeholder="Label"
+                className="md:col-span-2"
+              />
             </div>
 
             {/* Skills Section */}
-            <div className="space-y-4">
+            <div className="space-y-4 grid col-span-1">
               <Label htmlFor="skills">Skills</Label>
               <select
                 id="skills"
@@ -104,7 +99,7 @@ export const Profile = () => {
                   key={experience.id}
                   className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-16"
                 >
-                  <div className="grid w-full items-center gap-1">
+                  <div className="grid w-full items-center gap-2">
                     <Label htmlFor={`jobTitle-${experience.id}`}>
                       Job Title
                     </Label>
@@ -121,7 +116,7 @@ export const Profile = () => {
                       }
                     />
                   </div>
-                  <div className="grid w-full items-center gap-1">
+                  <div className="grid w-full items-center gap-2">
                     <Label htmlFor={`companyName-${experience.id}`}>
                       Company Name
                     </Label>
@@ -138,7 +133,7 @@ export const Profile = () => {
                       }
                     />
                   </div>
-                  <div className="grid w-full items-center gap-1">
+                  <div className="grid w-full items-center gap-2">
                     <Label htmlFor={`startDate-${experience.id}`}>
                       Start date
                     </Label>
@@ -171,7 +166,7 @@ export const Profile = () => {
                       </svg>
                     </div>
                   </div>
-                  <div className="grid w-full items-center gap-1">
+                  <div className="grid w-full items-center gap-2">
                     <Label htmlFor={`endDate-${experience.id}`}>End date</Label>
                     <div className="relative">
                       <Input
@@ -239,26 +234,26 @@ export const Profile = () => {
             </div>
 
             {/* Links Section */}
-            <div className="space-y-6">
+            <div className="space-y-6 border border-gray-200 p-4 rounded-2xl">
               <h3 className="text-lg font-semibold text-gray-900">Links</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-16">
-                <div className="grid w-full items-center gap-1">
+                <div className="grid w-full items-center gap-2">
                   <Label htmlFor="website">Website</Label>
                   <Input type="url" id="website" placeholder="Label" />
                 </div>
-                <div className="grid w-full items-center gap-1">
+                <div className="grid w-full items-center gap-2">
                   <Label htmlFor="twitter">X (Formerly twitter)</Label>
                   <Input type="url" id="twitter" placeholder="Label" />
                 </div>
-                <div className="grid w-full items-center gap-1">
+                <div className="grid w-full items-center gap-2">
                   <Label htmlFor="linkedin">LinkedIn</Label>
                   <Input type="url" id="linkedin" placeholder="Label" />
                 </div>
-                <div className="grid w-full items-center gap-1">
+                <div className="grid w-full items-center gap-2">
                   <Label htmlFor="youtube">Youtube</Label>
                   <Input type="url" id="youtube" placeholder="Label" />
                 </div>
-                <div className="grid w-full items-center gap-1">
+                <div className="grid w-full items-center gap-2">
                   <Label htmlFor="facebook">Facebook</Label>
                   <Input type="url" id="facebook" placeholder="Label" />
                 </div>
