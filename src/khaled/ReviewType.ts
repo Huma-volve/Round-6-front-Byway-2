@@ -10,4 +10,5 @@ export type Review = {
 export type ReviewResponse = {
     data : Review[]
     success :boolean
+    message : string
 }
