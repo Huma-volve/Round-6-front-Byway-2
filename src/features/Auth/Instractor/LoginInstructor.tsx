@@ -1,7 +1,7 @@
 import React from "react";
 
-const LoginInstractor = () => {
+const LoginInstructor = () => {
   return <div></div>;
 };
 
-export default LoginInstractor;
+export default LoginInstructor;

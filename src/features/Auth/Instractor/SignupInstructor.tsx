@@ -1,7 +1,7 @@
 import React from "react";
 
-const SignupInstractor = () => {
+const SignupInstructor = () => {
   return <div></div>;
 };
 
-export default SignupInstractor;
+export default SignupInstructor;

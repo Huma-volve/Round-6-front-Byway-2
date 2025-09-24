@@ -1,7 +1,7 @@
 import React from "react";
 
-const ForgotPasswordInstractor = () => {
+const ForgotPasswordInstructor = () => {
   return <div></div>;
 };
 
-export default ForgotPasswordInstractor;
+export default ForgotPasswordInstructor;
