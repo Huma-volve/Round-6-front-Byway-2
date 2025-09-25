@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from "react";
 import {
   IoSearchOutline,
@@ -16,6 +17,11 @@ import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+=======
+const Navbar = () => {
+  return <div></div>;
+};
+>>>>>>> main
 
   const location = useLocation();
   const dispatch = useDispatch();
