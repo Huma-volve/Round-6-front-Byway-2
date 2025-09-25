@@ -1,8 +1,12 @@
 import axios from "axios";
 import { API } from "../api";
-import type { ReviewResponse } from "@/khaled/ReviewType";
+import type { ReviewResponse } from "@/types/khaled/ReviewType";
 
 export async function getReview(): Promise<ReviewResponse> {
-  const { data } = await axios.get<ReviewResponse>(`${API}/instructor/reviews?page=2`);
-  return data;
+  const res = await axios.get<ReviewResponse>(`${API}/instructor/reviews?page=2`,{
+    headers : {
+        Authorization : `Bearer 1|j3IPuNDhhGpW1bRefkRYzZW9oQXhDwg2gyocyDuF1ae5f0a3`
+    }
+  });
+  return res.data;
 }
