@@ -4,10 +4,11 @@ import {
   ForgotPasswordInstructor,
   LoginInstructor,
   SignupInstructor,
-} from "./features/Auth/Instractor";
-import BrowseCourses from "./features/BrowseCourses/BrowseCourses";
+} from "./features/Auth/Instructor";
 import { Layout, NotFound } from "./layout";
-import { InstructorPage } from "./features/InstructorPage";
+import BrowseCourses from "./features/student/BrowseCourses";
+import InstructorPage from "./features/instructor/InstructorPage";
+import { Profile } from "./features/instructor/Profile/Profile";
 import CourseDetails from "./features/InstructorCourseDetails/CourseDetails";
 
 const router = createBrowserRouter([
@@ -17,13 +18,14 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { path: "/", element: <BrowseCourses /> },
-      { path: "/instructor/signup", element: <SignupInstructor /> },
-      { path: "/instructor/login", element: <LoginInstructor /> },
+      { path: "/Instructor/signup", element: <SignupInstructor /> },
+      { path: "/Instructor/login", element: <LoginInstructor /> },
       {
-        path: "/instructor/forgotpassword",
+        path: "/Instructor/forgotPassword",
         element: <ForgotPasswordInstructor />,
       },
-      { path: "/instructor/dashboard", element: <InstructorPage /> },
+      { path: "/Instructor/dashboard", element: <InstructorPage /> },
+      { path: "/profile", element: <Profile /> },
       { path: "*", element: <NotFound /> },
       {path:"/instructor/courses/:id/lessons", element:<CourseDetails/>}
     ],
