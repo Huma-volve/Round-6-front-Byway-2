@@ -149,21 +149,22 @@ export default function Navbar() {
             )}
           </div>
         </div>
-        {/* 
+
+        {/*debug*/}
         <div className="mt-2 flex space-x-2">
           <Button
             onClick={() => dispatch(loginSuccess())}
-            className="bg-green-600 text-white"
+            className="bg-gray-600 text-white"
           >
             Debug Login
           </Button>
           <Button
             onClick={() => dispatch(logout())}
-            className="bg-red-600 text-white"
+            className="bg-gray-600 text-white"
           >
             Debug Logout
           </Button>{" "}
-        </div> */}
+        </div>
       </div>
     </nav>
   );
