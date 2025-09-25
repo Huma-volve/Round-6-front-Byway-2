@@ -3,6 +3,15 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { FormField } from "@/components/ui/FormField";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface WorkExperience {
   id: string;
@@ -48,8 +57,8 @@ export const Profile = () => {
 
   return (
     <>
-      <div className="max-w-6xl m-auto min-h-screen mt-24">
-        <div className="p-4">
+      <div className="max-w-6xl m-auto min-h-screen my-24">
+        <div>
           <form className="space-y-8">
             {/* Personal Information Section */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-16">
@@ -67,27 +76,27 @@ export const Profile = () => {
                 placeholder="Label"
                 className="md:col-span-2"
               />
-            </div>
-
-            {/* Skills Section */}
-            <div className="space-y-4 grid col-span-1">
-              <Label htmlFor="skills">Skills</Label>
-              <select
-                id="skills"
-                className="w-full h-14 rounded-lg border border-gray-200 bg-transparent p-4 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]"
-              >
-                <option value="">please select</option>
-                <option value="javascript">JavaScript</option>
-                <option value="react">React</option>
-                <option value="typescript">TypeScript</option>
-                <option value="nodejs">Node.js</option>
-                <option value="python">Python</option>
-                <option value="java">Java</option>
-                <option value="csharp">C#</option>
-                <option value="php">PHP</option>
-                <option value="ruby">Ruby</option>
-                <option value="go">Go</option>
-              </select>
+              <div className="grid w-full items-center gap-2">
+                <Label htmlFor="skills">Skills</Label>
+                <Select>
+                  <SelectTrigger className="w-full h-14 focus-visible:ring-[1px]">
+                    <SelectValue placeholder="please select" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectLabel>Skills</SelectLabel>
+                      <SelectItem value="javascript">JavaScript</SelectItem>
+                      <SelectItem value="react">React</SelectItem>
+                      <SelectItem value="typescript">TypeScript</SelectItem>
+                      <SelectItem value="nodejs">Node.js</SelectItem>
+                      <SelectItem value="python">Python</SelectItem>
+                      <SelectItem value="java">Java</SelectItem>
+                      <SelectItem value="csharp">C#</SelectItem>
+                      <SelectItem value="php">PHP</SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
 
             {/* Work Experience Section */}
@@ -237,26 +246,41 @@ export const Profile = () => {
             <div className="space-y-6 border border-gray-200 p-4 rounded-2xl">
               <h3 className="text-lg font-semibold text-gray-900">Links</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-16">
-                <div className="grid w-full items-center gap-2">
-                  <Label htmlFor="website">Website</Label>
-                  <Input type="url" id="website" placeholder="Label" />
-                </div>
-                <div className="grid w-full items-center gap-2">
-                  <Label htmlFor="twitter">X (Formerly twitter)</Label>
-                  <Input type="url" id="twitter" placeholder="Label" />
-                </div>
-                <div className="grid w-full items-center gap-2">
-                  <Label htmlFor="linkedin">LinkedIn</Label>
-                  <Input type="url" id="linkedin" placeholder="Label" />
-                </div>
-                <div className="grid w-full items-center gap-2">
-                  <Label htmlFor="youtube">Youtube</Label>
-                  <Input type="url" id="youtube" placeholder="Label" />
-                </div>
-                <div className="grid w-full items-center gap-2">
-                  <Label htmlFor="facebook">Facebook</Label>
-                  <Input type="url" id="facebook" placeholder="Label" />
-                </div>
+                <FormField
+                  placeholder="Label"
+                  id="website"
+                  label="Website"
+                  type="url"
+                  className="md:col-span-2"
+                />
+                <FormField
+                  placeholder="Label"
+                  id="twitter"
+                  label="X (Formerly Twitter)"
+                  type="url"
+                  className="md:col-span-2"
+                />
+                <FormField
+                  placeholder="Label"
+                  id="linkedin"
+                  label="LinkedIn"
+                  type="url"
+                  className="md:col-span-2"
+                />
+                <FormField
+                  placeholder="Label"
+                  id="youtube"
+                  label="YouTube"
+                  type="url"
+                  className="md:col-span-2"
+                />
+                <FormField
+                  placeholder="Label"
+                  id="facebook"
+                  label="Facebook"
+                  type="url"
+                  className="md:col-span-2"
+                />
               </div>
             </div>
           </form>
