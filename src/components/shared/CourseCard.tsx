@@ -1,7 +1,10 @@
-import React from "react";
+
 
 const courseCard = () => {
-  return <div></div>;
+  return <>
+  </>
+  
+  
 };
 
 export default courseCard;

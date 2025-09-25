@@ -8,6 +8,7 @@ import {
 import BrowseCourses from "./features/BrowseCourses/BrowseCourses";
 import { Layout, NotFound } from "./layout";
 import { InstructorPage } from "./features/InstructorPage";
+import CourseDetails from "./features/InstructorCourseDetails/CourseDetails";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
       },
       { path: "/instructor/dashboard", element: <InstructorPage /> },
       { path: "*", element: <NotFound /> },
+      {path:"/instructor/courses/:id/lessons", element:<CourseDetails/>}
     ],
   },
 ]);
