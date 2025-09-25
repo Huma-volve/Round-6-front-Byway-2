@@ -27,8 +27,21 @@ const review: Review = {
 };
 
 const InstructorPage = () => {
+  // TODO: get user data from context
+  const user = {
+    name: "nada wael",
+    headline: "web developer",
+  };
   return (
     <div>
+      <header className="flex flex-col md:flex-row justify-between">
+        <div className="">
+          <p>Instructor</p>
+          <p>{user.name}</p>
+          <p>{user?.headline ? user?.headline : "-"}</p>
+        </div>
+        <div className=""></div>
+      </header>
       <ReviewCard reviewData={review} />
       <CourseCard courseData={data} />
       <CourseCardSkeleton />
