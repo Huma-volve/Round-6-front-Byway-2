@@ -4,10 +4,10 @@ import {
   ForgotPasswordInstructor,
   LoginInstructor,
   SignupInstructor,
-} from "./features/Auth/Instractor";
+} from "./features/Auth/Instructor";
+import { Layout, NotFound } from "./layout";
 import BrowseCourses from "./features/student/BrowseCourses";
 import InstructorPage from "./features/instructor/InstructorPage";
-import { Layout, NotFound } from "./layout";
 import Review from "./features/instructor/Review/Review";
 import Revenue from "./features/instructor/Revenue/Revenue";
 import { QueryClient } from "@tanstack/react-query";
@@ -15,6 +15,8 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import PayoutDetails from "./features/instructor/PayoutDetails/PayoutDetails";
 import Continue from "./features/instructor/PayoutDetails/Continue";
 import WithDraw from "./features/instructor/WirhDraw/WithDraw";
+import { Profile } from "./features/instructor/Profile/Profile";
+import CourseDetails from "./features/InstructorCourseDetails/CourseDetails";
 
 const client = new QueryClient()
 
@@ -25,10 +27,10 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { path: "/", element: <BrowseCourses /> },
-      { path: "/instructor/signup", element: <SignupInstructor /> },
-      { path: "/instructor/login", element: <LoginInstructor /> },
+      { path: "/Instructor/signup", element: <SignupInstructor /> },
+      { path: "/Instructor/login", element: <LoginInstructor /> },
       {
-        path: "/instructor/forgotpassword",
+        path: "/Instructor/forgotPassword",
         element: <ForgotPasswordInstructor />,
       },
       { path: "/instructor/dashboard", element: <InstructorPage /> },
@@ -37,7 +39,9 @@ const router = createBrowserRouter([
       { path: "/instructors/Continue", element: <Continue /> },
       { path: "/instructors/PayoutDetails", element: <PayoutDetails /> },
       { path: "/instructors/WithDraw", element: <WithDraw /> },
+      { path: "/profile", element: <Profile /> },
       { path: "*", element: <NotFound /> },
+      {path:"/instructor/courses/:id/lessons", element:<CourseDetails/>}
     ],
   },
 ]);
