@@ -8,8 +8,17 @@ import {
 import { Layout, NotFound } from "./layout";
 import BrowseCourses from "./features/student/BrowseCourses";
 import InstructorPage from "./features/instructor/InstructorPage";
+import Review from "./features/instructor/Review/Review";
+import Revenue from "./features/instructor/Revenue/Revenue";
+import { QueryClient } from "@tanstack/react-query";
+import { QueryClientProvider } from "@tanstack/react-query";
+import PayoutDetails from "./features/instructor/PayoutDetails/PayoutDetails";
+import Continue from "./features/instructor/PayoutDetails/Continue";
+import WithDraw from "./features/instructor/WirhDraw/WithDraw";
 import { Profile } from "./features/instructor/Profile/Profile";
 import CourseDetails from "./features/InstructorCourseDetails/CourseDetails";
+
+const client = new QueryClient()
 
 const router = createBrowserRouter([
   {
@@ -24,7 +33,12 @@ const router = createBrowserRouter([
         path: "/Instructor/forgotPassword",
         element: <ForgotPasswordInstructor />,
       },
-      { path: "/Instructor/dashboard", element: <InstructorPage /> },
+      { path: "/instructor/dashboard", element: <InstructorPage /> },
+      { path: "/instructors/Review", element: <Review /> },
+      { path: "/instructors/Revenue", element: <Revenue /> },
+      { path: "/instructors/Continue", element: <Continue /> },
+      { path: "/instructors/PayoutDetails", element: <PayoutDetails /> },
+      { path: "/instructors/WithDraw", element: <WithDraw /> },
       { path: "/profile", element: <Profile /> },
       { path: "*", element: <NotFound /> },
       {path:"/instructor/courses/:id/lessons", element:<CourseDetails/>}
@@ -33,7 +47,9 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return <QueryClientProvider client={client}>
+    <RouterProvider router={router} />
+  </QueryClientProvider>;
 }
 
 export default App;

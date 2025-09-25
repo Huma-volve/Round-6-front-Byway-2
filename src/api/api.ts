@@ -2,6 +2,7 @@
 import type { CourseResponse } from "@/types.ts/types";
 import axios from "axios";
 
+export const API = "http://round6-byway.huma-volve.com";
 const api = axios.create({
   baseURL: "http://round6-byway.huma-volve.com/api",
 });
