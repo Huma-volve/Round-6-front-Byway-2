@@ -1,7 +1,5 @@
-import React from "react";
-
-const InstractorPage = () => {
+const InstructorPage = () => {
   return <div></div>;
 };
 
-export default InstractorPage;
+export default InstructorPage;
