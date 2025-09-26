@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useState } from "react";
 import {
   IoSearchOutline,
@@ -17,19 +16,14 @@ import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-=======
-const Navbar = () => {
-  return <div></div>;
-};
->>>>>>> main
 
   const location = useLocation();
   const dispatch = useDispatch();
   const { isAuthenticated } = useSelector((state: RootState) => state.auth);
   const navigate = useNavigate();
   const isHome = location.pathname === "/";
-  const isLogin = location.pathname === "/login";
-  const isSignup = location.pathname === "/signup";
+  const isLogin = location.pathname === "/Student/login";
+  const isSignup = location.pathname === "/Student/SignUp";
   const menu = [
     { name: "Profile", path: "/profile" },
     { name: "My Courses", path: "/courses" },
@@ -55,7 +49,7 @@ const Navbar = () => {
               <Input
                 type="text"
                 placeholder="Search"
-                className="pr-10 w-full border border-gray-600 focus-visible:ring-0 focus-visible:border"
+                className="h-10 pr-10 w-full border border-gray-600 focus-visible:ring-0 focus-visible:border"
               />
               <div className="absolute inset-y-0 right-0 flex items-center pr-3">
                 <IoSearchOutline className="h-5 w-5 text-gray-400" />
@@ -98,7 +92,7 @@ const Navbar = () => {
                   <Link to="/Student/login">
                     <Button
                       variant="outline"
-                      className="border border-gray-700"
+                      className="border border-gray-700 "
                     >
                       Log In
                     </Button>
@@ -157,7 +151,7 @@ const Navbar = () => {
         </div>
 
         {/*debug*/}
-        <div className="mt-2 flex space-x-2">
+        {/* <div className="mt-2 flex space-x-2">
           <Button
             onClick={() => dispatch(loginSuccess())}
             className="bg-gray-600 text-white"
@@ -170,7 +164,7 @@ const Navbar = () => {
           >
             Debug Logout
           </Button>{" "}
-        </div>
+        </div> */}
       </div>
     </nav>
   );
