@@ -10,7 +10,7 @@ const courseCard = ({ courseData }: { courseData: Course }) => {
   const rating = 4;
 
   return (
-    <article className="rounded-2xl p-4 border-[1px] border-gray-border max-w-[298px]">
+    <article className="rounded-2xl p-4 border-[1px] border-gray-border hover:border-gray-900  hover:bg-gray-50 transition duration-300 max-w-[298px]">
       <img
         src={courseData.image}
         alt="course cover photo"
@@ -34,7 +34,7 @@ const courseCard = ({ courseData }: { courseData: Course }) => {
         <p className="flex-wrap flex gap-2 text-sm text-gray-700">
           {courseData.lessons_count} Lectures. {courseData.level}
         </p>
-        <p className="font-semibold text-lg lg:text-xl text-gray-900">
+        <p className="font-semibold text-xl text-gray-900">
           {courseData.price} EGP
         </p>
       </div>
