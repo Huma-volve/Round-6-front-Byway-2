@@ -86,6 +86,7 @@ import { Profile } from "./features/instructor/Profile/Profile";
 import CourseDetails from "./features/InstructorCourseDetails/CourseDetails";
 import Login from "./features/Auth/Student/Login";
 import SignUp from "./features/Auth/Student/SignUp";
+import NotificationsEmptyIns from "./features/instructor/NotificationsIns/NotificationsEmptyIns";
 
 const client = new QueryClient();
 
@@ -104,15 +105,16 @@ const router = createBrowserRouter([
         path: "/Instructor/forgotPassword",
         element: <ForgotPasswordInstructor />,
       },
-      { path: "/instructor/dashboard", element: <InstructorPage /> },
+      { path: "/instructors/dashboard", element: <InstructorPage /> },
       { path: "/instructors/Review", element: <Review /> },
       { path: "/instructors/Revenue", element: <Revenue /> },
       { path: "/instructors/Continue", element: <Continue /> },
       { path: "/instructors/PayoutDetails", element: <PayoutDetails /> },
+      { path: "/instructors/NotificationsEmptyIns", element: <NotificationsEmptyIns /> },
       { path: "/instructors/WithDraw", element: <WithDraw /> },
       { path: "/profile", element: <Profile /> },
       { path: "*", element: <NotFound /> },
-      { path: "/instructor/courses/:id/lessons", element: <CourseDetails /> },
+      { path: "/instructors/courses/:id/lessons", element: <CourseDetails /> },
     ],
   },
 ]);

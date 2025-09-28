@@ -10,9 +10,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useDispatch, useSelector } from "react-redux";
 import { loginSuccess, logout } from "@/store/AuthSlice";
-import { Link, useLocation } from "react-router-dom";
+
 import type { RootState } from "@/store/Store";
-import { useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router";
+
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -79,9 +80,11 @@ export default function Navbar() {
                   <Button variant="ghost" size="icon">
                     <IoHeartOutline />
                   </Button>
-                  <Button variant="ghost" size="icon">
-                    <IoNotificationsOutline />
-                  </Button>
+                  <Link to="/instructors/NotificationsEmptyIns">
+                    <Button variant="ghost" size="icon">
+                      <IoNotificationsOutline />
+                    </Button>
+                  </Link>
                 </>
               )}
             </div>
