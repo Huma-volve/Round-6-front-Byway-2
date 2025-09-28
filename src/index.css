@@ -48,7 +48,6 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-
 @theme inline {
   --color-gray-40: #aeaeb2;
   --color-gray-100: #1c1c1e;
@@ -141,7 +140,19 @@
     @apply border-border outline-ring/50;
   }
 
-  body {
-    @apply bg-background text-foreground;
+  html {
+    @apply overflow-x-hidden;
   }
+}
+
+.active {
+  @apply text-blue-600
+}
+
+body {
+  @apply bg-background text-foreground overflow-x-hidden;
+}
+
+button {
+  cursor: pointer;
 }
