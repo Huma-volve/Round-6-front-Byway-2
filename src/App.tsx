@@ -86,11 +86,11 @@ import { Profile } from "./features/instructor/Profile/Profile";
 import CourseDetails from "./features/InstructorCourseDetails/CourseDetails";
 import Login from "./features/Auth/Student/Login";
 import SignUp from "./features/Auth/Student/SignUp";
-import PaymentMethods from "./features/student/PaymentMehods";
+import PaymentMethods from "./features/student/PaymentMethods";
 import Setting from "./features/student/Setting";
 import Favourite from "./features/student/Favourite";
 import PaymentHistory from "./features/student/PaymentHistory";
-import Notfications from "./features/student/Notfications";
+import Notfications from "./features/student/Notifications";
 import NotificationsEmptyIns from "./features/instructor/NotificationsIns/NotificationsEmptyIns";
 
 const client = new QueryClient();
@@ -115,7 +115,10 @@ const router = createBrowserRouter([
       { path: "/instructors/Revenue", element: <Revenue /> },
       { path: "/instructors/Continue", element: <Continue /> },
       { path: "/instructors/PayoutDetails", element: <PayoutDetails /> },
-      { path: "/instructors/NotificationsEmptyIns", element: <NotificationsEmptyIns /> },
+      {
+        path: "/instructors/NotificationsEmptyIns",
+        element: <NotificationsEmptyIns />,
+      },
       { path: "/instructors/WithDraw", element: <WithDraw /> },
       { path: "/profile", element: <Profile /> },
       { path: "*", element: <NotFound /> },
