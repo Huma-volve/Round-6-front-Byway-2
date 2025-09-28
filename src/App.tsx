@@ -34,8 +34,8 @@ import PaymentMethods from "./features/student/PaymentMethods";
 import Setting from "./features/student/Setting";
 import Favourite from "./features/student/Favourite";
 import PaymentHistory from "./features/student/PaymentHistory";
-import Notfications from "./features/student/Notifications";
 import NotificationsEmptyIns from "./features/instructor/NotificationsIns/NotificationsEmptyIns";
+import Notifications from "./features/student/Notifications";
 
 const client = new QueryClient();
 
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
       { path: "/student/setting/payment-methods", element: <PaymentMethods /> },
       { path: "/student/payment-history", element: <PaymentHistory /> },
       { path: "/student/favourites", element: <Favourite /> },
-      { path: "/student/notfications", element: <Notfications /> },
+      { path: "/student/notifications", element: <Notifications /> },
       { path: "/instructors/courses/:id/lessons", element: <CourseDetails /> },
       {
         path: "/Instructor/forgotPassword",
