@@ -1,6 +1,20 @@
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
+import Toast from "@/components/shared/Toast"
+import { useNavigate } from "react-router"
 
 const WithDraw = () => {
+  const navigator = useNavigate()
+  const [showToast, setShowToast] = useState(false)
+
+  function handleClick() {
+    setShowToast(true)
+    setTimeout(() => {
+      setShowToast(false)
+      navigator("/")
+    }, 3000)
+  }
+
   return (
     <section className="mt-10 space-y-8">
       <h2 className="text-2xl font-bold">Withdraw Amount</h2>
@@ -28,9 +42,18 @@ const WithDraw = () => {
         You can withdraw any amount between $40,340 and $44,340
       </p>
 
-      <Button className="w-1/4 bg-green-500 text-lg font-semibold hover:bg-green-600">
+      <Button
+        onClick={handleClick}
+        className="w-1/4 bg-green-500 text-lg font-semibold hover:bg-green-600"
+      >
         Next
       </Button>
+
+      {showToast && (
+        <div className="fixed bottom-4 right-4">
+          <Toast />
+        </div>
+      )}
     </section>
   )
 }
