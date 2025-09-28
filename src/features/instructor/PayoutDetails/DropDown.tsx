@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import Continue from "./Continue";
 
 // Hook: Detect outside click
 const useClickOutside = (handler: () => void) => {
@@ -53,16 +54,23 @@ const Dropdown4 = () => {
 
         {/* Dropdown */}
         <div
-          className={`absolute left-0 right-0 mt-2 rounded-lg bg-white shadow-lg overflow-hidden transition-all duration-300 ${
-            dropdownOpen
-              ? "max-h-60 opacity-100 visible"
-              : "max-h-0 opacity-0 invisible"
-          }`}
-        >
-          <DropdownItem label="PayPal" name="payment" onSelect={setSelected} />
-          <DropdownItem label="Bank Transfer" name="payment" onSelect={setSelected} />
-          <DropdownItem label="Fawry" name="payment" onSelect={setSelected} />
-        </div>
+  className={`absolute left-0 right-0 mt-2 rounded-lg bg-white shadow-lg overflow-hidden transition-all duration-300 ${
+    dropdownOpen
+      ? "max-h-60 opacity-100 visible"
+      : "max-h-0 opacity-0 invisible"
+  }`}
+>
+  <DropdownItem label="PayPal" name="payment" onSelect={setSelected} />
+  <DropdownItem label="Bank Transfer" name="payment" onSelect={setSelected} />
+  <DropdownItem label="Fawry" name="payment" onSelect={setSelected} />
+</div>
+
+{selected === "Bank Transfer" && (
+  <div className="mt-6">
+    <Continue />
+  </div>
+)}
+
       </div>
     </section>
   );
