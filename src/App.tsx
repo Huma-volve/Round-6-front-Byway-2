@@ -5,7 +5,7 @@ import {
   LoginInstructor,
   SignupInstructor,
 } from "./features/Auth/Instractor";
-import BrowseCourses from "./features/BrowseCourses/BrowseCourses";
+import BrowseCourses from "./features/student/BrowseCourses/BrowseCourses";
 import { Layout, NotFound } from "./layout";
 import { InstructorPage } from "./features/InstructorPage";
 
