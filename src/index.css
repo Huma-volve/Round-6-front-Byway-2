@@ -48,7 +48,6 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-
 @theme inline {
   --color-gray-40: #aeaeb2;
   --color-gray-100: #1c1c1e;
@@ -143,4 +142,8 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.active {
+  @apply text-blue-600
 }
