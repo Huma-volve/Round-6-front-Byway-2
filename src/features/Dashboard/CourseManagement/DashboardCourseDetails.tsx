@@ -3,9 +3,13 @@ import CourseImage from "../../../assets/images/courseImage.png";
 import VideoImage from "../../../assets/images/videoImage.png";
 
 import { useState } from "react";
+import avatar from "@/assets/images/avatar.png";
+import { format, parseISO } from "date-fns";
+import { FaStar } from "react-icons/fa";
 
 export default function DashboardCourseDetails() {
   const [clicked, setClicked] = useState(false);
+
   return (
     <div className="container mt-10 ml-10 ">
       <div className="flex flex-col items-start gap-3">
@@ -47,6 +51,39 @@ export default function DashboardCourseDetails() {
             </div>
           </div>
         )}
+        <div className="rounded-2xl p-4 lg:p-6 border border-gray-border mr-25 mb-5">
+          <div className="flex gap-4 items-center ">
+            <img
+              src={avatar}
+              alt="an avatar"
+              className="h-16 w-16 rounded-full mb-4"
+            />
+            <p className="font-semibold text-lg mb-2">Mohamed Ali</p>
+            <div className="ml-auto mb-10">
+              <div className="flex items-center gap-70">
+                <p className="font-semibold text-sm flex gap-1 items-center text-[#727272]">
+                  (1200 Rating)
+                  <FaStar className="h-4 w-4 text-warning-500" />
+                  <FaStar className="h-4 w-4 text-warning-500" />
+                  <FaStar className="h-4 w-4 text-warning-500" />
+                  <FaStar className="h-4 w-4 text-warning-500" />
+                  <FaStar className="h-4 w-4 text-warning-500" />
+                </p>
+                <p className="text-sm text-gray-700">
+                  Reviewed on {format(parseISO("2025-04-22"), "do MMMM, yyyy")}
+                </p>
+              </div>
+            </div>
+          </div>
+          <p className=" text-gray-700 text-xl ">
+            {" "}
+            I was initially apprehensive, having no prior design experience. But
+            the instructor, John Doe, did an amazing job of breaking down
+            complex concepts into easily digestible modules. The video lectures
+            were engaging, and the real-world examples really helped solidify my
+            understanding.
+          </p>
+        </div>
       </div>
     </div>
   );
