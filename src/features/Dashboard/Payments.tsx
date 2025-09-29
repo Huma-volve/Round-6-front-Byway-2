@@ -5,7 +5,7 @@ const Payments = () => {
   const param = useParams();
   const transactionId = param.id;
   return (
-    <div className="px-11 my-18">
+    <div className="my-18">
       <h1 className="font-medium text-3xl text-blue mb-8">Payment Details</h1>
       <div className="flex flex-col gap-4">
         <Info>Student: Salma Ahmed</Info>

@@ -8,7 +8,7 @@ function LayoutDashboard() {
       <SidebarProvider defaultOpen>
         <AppSidebar />
         <SidebarTrigger />
-        <main className="w-full max-w-[1240px] mx-auto px-4 bg-black/10">
+        <main className="w-full max-w-[1240px] mx-auto px-4">
           <Outlet />
         </main>
       </SidebarProvider>
