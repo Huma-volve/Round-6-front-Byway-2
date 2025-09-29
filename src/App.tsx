@@ -86,6 +86,9 @@ import { Profile } from "./features/instructor/Profile/Profile";
 import CourseDetails from "./features/InstructorCourseDetails/CourseDetails";
 import Login from "./features/Auth/Student/Login";
 import SignUp from "./features/Auth/Student/SignUp";
+import UserProfilePage from "./features/student/Profile/UserProfilePage";
+import EditUserProfile from "./features/student/Profile/EditUserProfile";
+import CloseAccount from "./features/close account/CloseAccount";
 
 const client = new QueryClient();
 
@@ -111,6 +114,9 @@ const router = createBrowserRouter([
       { path: "/instructors/PayoutDetails", element: <PayoutDetails /> },
       { path: "/instructors/WithDraw", element: <WithDraw /> },
       { path: "/profile", element: <Profile /> },
+      { path: "/userprofile", element: <UserProfilePage /> },
+      { path: "/close-account", element: <CloseAccount /> },
+      { path: "/edit-user-profile", element: <EditUserProfile /> },
       { path: "*", element: <NotFound /> },
       { path: "/instructor/courses/:id/lessons", element: <CourseDetails /> },
     ],
