@@ -36,6 +36,7 @@ import Favourite from "./features/student/Favourite";
 import PaymentHistory from "./features/student/PaymentHistory";
 import NotificationsEmptyIns from "./features/instructor/NotificationsIns/NotificationsEmptyIns";
 import Notifications from "./features/student/Notifications";
+import DashboardCourseDetails from "./features/Dashboard/CourseManagement/DashboardCourseDetails";
 
 const client = new QueryClient();
 
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
       { path: "/adminDashboard", element: <DashboardPage /> },
       { path: "/userManagement", element: <UserManagement /> },
       { path: "/courseManagement", element: <CourseManagement /> },
+      {
+        path: "/courseManagement/course-details",
+        element: <DashboardCourseDetails />,
+      },
       { path: "/paymentsRevenue", element: <PaymentsRevenue /> },
       { path: "/reviewsRatings", element: <ReviewsRatings /> },
       { path: "/platformSettings", element: <PlatformSettings /> },
