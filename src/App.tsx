@@ -11,6 +11,9 @@ import PayoutDetails from "./features/instructor/PayoutDetails/PayoutDetails";
 import Continue from "./features/instructor/PayoutDetails/Continue";
 import WithDraw from "./features/instructor/WirhDraw/WithDraw";
 import { Profile } from "./features/instructor/Profile/Profile";
+import EnrolledCourses from "./features/student/EnrolledCourses";
+import EnrolledCourseDetails from "./features/student/EnrolledCourseDetails";
+import EnrolledLessonVideo from "./features/student/EnrolledLessonVideo";
 import { MyCourses } from "./features/instructor/MyCourses/MyCourses";
 import { Provider } from "react-redux";
 import { store } from "./store/Store";
@@ -24,13 +27,14 @@ import PlatformSettings from "./features/Dashboard/PlatformSettings/PlatformSett
 import ReportsAnalytics from "./features/Dashboard/ReportsAnalytics/ReportsAnalytics";
 import CourseDetails from "./features/InstructorCourseDetails/CourseDetails";
 import Login from "./features/Auth/Student/Login";
-import SignUp from "./features/Auth/Student/SignUp";
 import PaymentMethods from "./features/student/PaymentMehods";
 import Setting from "./features/student/Setting";
 import Favourite from "./features/student/Favourite";
 import PaymentHistory from "./features/student/PaymentHistory";
 import Notfications from "./features/student/Notfications";
 import NotificationsEmptyIns from "./features/instructor/NotificationsIns/NotificationsEmptyIns";
+import FPassword from "@/features/Auth/Student/ForgetPass";
+import Otp from "@/features/Auth/Student/Otp";
 import { Register, Welcome } from "./features/Auth";
 
 const client = new QueryClient();
@@ -45,7 +49,8 @@ const router = createBrowserRouter([
       { path: "/welcome", element: <Welcome /> },
       { path: "/register", element: <Register /> },
       { path: "/Student/login", element: <Login /> },
-      { path: "/Student/SignUp", element: <SignUp /> },
+      { path: "/Student/otp", element: <Otp /> },
+      { path: "/Student/forgot-password", element: <FPassword /> },
       { path: "/student/setting", element: <Setting /> },
       { path: "/student/setting/payment-methods", element: <PaymentMethods /> },
       { path: "/student/payment-history", element: <PaymentHistory /> },
@@ -80,6 +85,15 @@ const router = createBrowserRouter([
       { path: "/platformSettings", element: <PlatformSettings /> },
       { path: "/reportsAnalytics", element: <ReportsAnalytics /> },
       { path: "*", element: <NotFound /> },
+      { path: "/student/enrolledCourses", element: <EnrolledCourses /> },
+      {
+        path: "/student/enrolledCourseDetails/",
+        element: <EnrolledCourseDetails />,
+      },
+      {
+        path: "/student/enrolledLessonVideo/",
+        element: <EnrolledLessonVideo />,
+      },
     ],
   },
 ]);
