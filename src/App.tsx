@@ -26,16 +26,20 @@ import ReviewsRatings from "./features/Dashboard/ReviewsRatings/ReviewsRatings";
 import PlatformSettings from "./features/Dashboard/PlatformSettings/PlatformSettings";
 import ReportsAnalytics from "./features/Dashboard/ReportsAnalytics/ReportsAnalytics";
 import CourseDetails from "./features/InstructorCourseDetails/CourseDetails";
-import Login from "./features/Auth/Student/Login";
 import PaymentMethods from "./features/student/PaymentMehods";
 import Setting from "./features/student/Setting";
 import Favourite from "./features/student/Favourite";
 import PaymentHistory from "./features/student/PaymentHistory";
 import Notfications from "./features/student/Notfications";
 import NotificationsEmptyIns from "./features/instructor/NotificationsIns/NotificationsEmptyIns";
-import FPassword from "@/features/Auth/Student/ForgetPass";
-import Otp from "@/features/Auth/Student/Otp";
-import { Register, Welcome } from "./features/Auth";
+import {
+  Register,
+  ResetPassword,
+  Welcome,
+  Otp,
+  Login,
+  ForgetPass,
+} from "./features/Auth";
 
 const client = new QueryClient();
 
@@ -48,16 +52,17 @@ const router = createBrowserRouter([
       { path: "/", element: <BrowseCourses /> },
       { path: "/welcome", element: <Welcome /> },
       { path: "/register", element: <Register /> },
-      { path: "/Student/login", element: <Login /> },
-      { path: "/Student/otp", element: <Otp /> },
-      { path: "/Student/forgot-password", element: <FPassword /> },
+      { path: "/reset-password", element: <ResetPassword /> },
+      { path: "/login", element: <Login /> },
+      { path: "/otp", element: <Otp /> },
+      { path: "/forgot-password", element: <ForgetPass /> },
       { path: "/student/setting", element: <Setting /> },
       { path: "/student/setting/payment-methods", element: <PaymentMethods /> },
       { path: "/student/payment-history", element: <PaymentHistory /> },
       { path: "/student/favourites", element: <Favourite /> },
       { path: "/student/notfications", element: <Notfications /> },
-      { path: "/instructors/courses/:id/lessons", element: <CourseDetails /> },
       { path: "/instructors/dashboard", element: <InstructorPage /> },
+      { path: "/instructors/courses/:id/lessons", element: <CourseDetails /> },
       { path: "/instructors/Review", element: <Review /> },
       { path: "/instructors/Revenue", element: <Revenue /> },
       { path: "/instructors/Continue", element: <Continue /> },

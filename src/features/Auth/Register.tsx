@@ -59,7 +59,7 @@ const Register = () => {
   }
 
   return (
-    <div className="grid grid-cols-5 gap-6 px-2 mb-40">
+    <div className="grid grid-cols-5 gap-6 px-2 mb-40 mt-40">
       <div className="md:col-span-3 col-span-5">
         <h1 className="font-semibold text-3xl text-center">
           Create {role ? role.charAt(0).toUpperCase() + role.slice(1) : ""}{" "}

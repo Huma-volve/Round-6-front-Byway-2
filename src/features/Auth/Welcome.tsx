@@ -7,7 +7,7 @@ const Welcome = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className="mt-40 mb-28">
       <h1 className="font-semibold text-3xl mb-10 text-center">
         Select Your Role
       </h1>

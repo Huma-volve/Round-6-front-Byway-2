@@ -29,7 +29,7 @@ export default function Otp() {
 
     setError("");
     console.log("OTP entered:", code);
-    navigate("/Student/reset-password");
+    navigate("/reset-password");
   };
 
   return (
@@ -74,7 +74,7 @@ export default function Otp() {
         <p className="text-sm text-gray-500 mt-4">
           Didn’t receive code?{" "}
           <Link
-            to="/Student/otp"
+            to="/otp"
             onClick={() => window.location.reload()}
             className="text-blue-700 hover:underline"
           >

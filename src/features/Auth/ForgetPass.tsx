@@ -17,7 +17,7 @@ export default function ForgetPass() {
   const navigate = useNavigate();
 
   const onSubmit = (values: { email: string }) => {
-    navigate("/Student/otp");
+    navigate("/otp");
   };
 
   return (
