@@ -14,7 +14,6 @@ import { loginSuccess, logout } from "@/store/AuthSlice";
 import type { RootState } from "@/store/Store";
 import { Link, useLocation, useNavigate } from "react-router";
 
-
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
@@ -23,8 +22,8 @@ export default function Navbar() {
   const { isAuthenticated } = useSelector((state: RootState) => state.auth);
   const navigate = useNavigate();
   const isHome = location.pathname === "/";
-  const isLogin = location.pathname === "/Student/login";
-  const isSignup = location.pathname === "/Student/SignUp";
+  const isLogin = location.pathname === "/login";
+  const isSignup = location.pathname === "/welcome";
   const menu = [
     { name: "Profile", path: "/profile" },
     { name: "My Courses", path: "/courses" },
@@ -92,7 +91,7 @@ export default function Navbar() {
             {!isAuthenticated ? (
               <>
                 {!isLogin && (
-                  <Link to="/Student/login">
+                  <Link to="/login">
                     <Button
                       variant="outline"
                       className="border border-gray-700 "
@@ -102,7 +101,7 @@ export default function Navbar() {
                   </Link>
                 )}
                 {!isSignup && (
-                  <Link to="/Student/SignUp">
+                  <Link to="/welcome">
                     <Button className="bg-gray-700 hover:bg-gray-600 text-white">
                       Sign Up
                     </Button>
