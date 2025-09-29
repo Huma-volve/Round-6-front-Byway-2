@@ -28,7 +28,7 @@ const PayoutDetails = () => {
       before:h-2 before:w-2 before:-translate-x-1/2 before:-translate-y-1/2 
       before:rounded-full before:bg-black before:opacity-0 
       checked:before:opacity-100 cursor-pointer"/>Save these details</label>
-      <NavLink to={"/instructors/Continue"}>
+      <NavLink to={"/instructors/WithDraw"}>
         <Button className="w-[20%] bg-green-500 hover:bg-green-600 cursor-pointer font-semibold text-lg">Continue</Button>
       </NavLink>
   </section>
