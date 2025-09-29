@@ -19,3 +19,9 @@ export type Review = {
   student_name: string;
   created_at: string;
 };
+
+export type RatingStats = {
+  totalRatings: number;
+  averageRating: number;
+  percentages: Record<number, number>; // e.g. { 5: 40, 4: 20, 3: 10, 2: 20, 1: 10 }
+};

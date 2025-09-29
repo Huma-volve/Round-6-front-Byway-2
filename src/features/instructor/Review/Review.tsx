@@ -1,14 +1,8 @@
-import { getReview } from "@/api/InstructorReview/Review"
-import { useQuery } from "@tanstack/react-query"
+
+import { FaStar } from "react-icons/fa";
 
 const Review = () => {
 
-const {data, isLoading, error} = useQuery({
-    queryKey: ["reviews"],
-    queryFn: () => getReview(),
-})
-
-console.log("data",data)
 
 
   return <>
@@ -19,9 +13,13 @@ console.log("data",data)
       <h3 className="text-gray-900">Course Name:</h3>
       <p className="font-bold">Beginner’s Guide to UI UX </p>
     </div>
-    <div className="flex gap-3">
+    <div className="flex gap-3 items-center">
       <h3 className="text-gray-900">Rating:</h3>
-      <p>5</p>
+      <p><FaStar className="text-yellow-300" /></p>
+      <p><FaStar className="text-yellow-300" /></p>
+      <p><FaStar className="text-yellow-300" /></p>
+      <p><FaStar className="text-yellow-300" /></p>
+      <p><FaStar className="text-yellow-300" /></p>
     </div>
     <div className="flex gap-3">
       <h3 className="text-gray-900">Review:</h3>
