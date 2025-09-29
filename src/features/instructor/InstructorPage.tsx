@@ -292,7 +292,7 @@ const InstructorPage = () => {
   }, []);
 
   return (
-    <div>
+    <div className="mt-40">
       {/* The header */}
       <header className="flex flex-col md:flex-row justify-between gap-16 mt-10 mb-24">
         <div className="text-gray-700 text-2xl font-medium">
