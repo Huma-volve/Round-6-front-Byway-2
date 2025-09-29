@@ -39,6 +39,8 @@ import Favourite from "./features/student/Favourite";
 import PaymentHistory from "./features/student/PaymentHistory";
 import Notfications from "./features/student/Notfications";
 import NotificationsEmptyIns from "./features/instructor/NotificationsIns/NotificationsEmptyIns";
+import FPassword from "@/features/Auth/Student/ForgetPass";
+import Otp from "@/features/Auth/Student/Otp";
 
 const client = new QueryClient();
 
@@ -59,6 +61,9 @@ const router = createBrowserRouter([
       { path: "/student/favourites", element: <Favourite /> },
       { path: "/student/notfications", element: <Notfications /> },
       { path: "/instructors/courses/:id/lessons", element: <CourseDetails /> },
+      { path: "/Student/forgot-password", element: <FPassword /> },
+      { path: "/Student/otp", element: <Otp /> },
+
       {
         path: "/Instructor/forgotPassword",
         element: <ForgotPasswordInstructor />,
@@ -92,8 +97,14 @@ const router = createBrowserRouter([
       { path: "/reportsAnalytics", element: <ReportsAnalytics /> },
       { path: "*", element: <NotFound /> },
       { path: "/student/enrolledCourses", element: <EnrolledCourses /> },
-      { path: "/student/enrolledCourseDetails/", element: <EnrolledCourseDetails /> },
-      { path: "/student/enrolledLessonVideo/", element: <EnrolledLessonVideo /> },
+      {
+        path: "/student/enrolledCourseDetails/",
+        element: <EnrolledCourseDetails />,
+      },
+      {
+        path: "/student/enrolledLessonVideo/",
+        element: <EnrolledLessonVideo />,
+      },
     ],
   },
 ]);
