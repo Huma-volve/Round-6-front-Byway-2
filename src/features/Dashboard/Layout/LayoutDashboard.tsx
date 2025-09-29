@@ -7,8 +7,8 @@ function LayoutDashboard() {
     <>
       <SidebarProvider>
         <AppSidebar />
-        <main>
-          <SidebarTrigger />
+          <SidebarTrigger className="" />
+        <main className="w-full max-w-[1300px] px-4 mx-auto mt-6">
           <Outlet />
         </main>
       </SidebarProvider>

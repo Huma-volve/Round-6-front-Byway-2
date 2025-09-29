@@ -36,6 +36,7 @@ import Favourite from "./features/student/Favourite";
 import PaymentHistory from "./features/student/PaymentHistory";
 import Notfications from "./features/student/Notfications";
 import NotificationsEmptyIns from "./features/instructor/NotificationsIns/NotificationsEmptyIns";
+import UserProfile from "./features/Dashboard/UserProfile/UserProfile";
 
 const client = new QueryClient();
 
@@ -87,6 +88,7 @@ const router = createBrowserRouter([
       { path: "/reviewsRatings", element: <ReviewsRatings /> },
       { path: "/platformSettings", element: <PlatformSettings /> },
       { path: "/reportsAnalytics", element: <ReportsAnalytics /> },
+      { path: "/userProfile", element: <UserProfile /> },
       { path: "*", element: <NotFound /> },
     ],
   },
