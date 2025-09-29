@@ -64,8 +64,6 @@ const router = createBrowserRouter([
       { path: "/student/payment-history", element: <PaymentHistory /> },
       { path: "/student/favourites", element: <Favourite /> },
       { path: "/student/notifications", element: <Notifications /> },
-      { path: "/instructors/courses/:id/lessons", element: <CourseDetails /> },
-
       { path: "/instructors/dashboard", element: <InstructorPage /> },
       { path: "/instructors/courses/:id/lessons", element: <CourseDetails /> },
       { path: "/instructors/Review", element: <Review /> },

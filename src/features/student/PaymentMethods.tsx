@@ -12,7 +12,7 @@ export default function PaymentMethods() {
     { id: "pm_card_visa", method: "Credit/Debit Card", image: Card },
   ];
   return (
-    <div className="container mx-auto mt-20">
+    <div className="container mx-auto mt-[15%]">
       <div>
         <h1 className="font-semibold text-[#1C1C1E] text-3xl">
           Choose your payment method:
