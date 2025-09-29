@@ -26,12 +26,14 @@ import ReviewsRatings from "./features/Dashboard/ReviewsRatings/ReviewsRatings";
 import PlatformSettings from "./features/Dashboard/PlatformSettings/PlatformSettings";
 import ReportsAnalytics from "./features/Dashboard/ReportsAnalytics/ReportsAnalytics";
 import CourseDetails from "./features/InstructorCourseDetails/CourseDetails";
-import PaymentMethods from "./features/student/PaymentMehods";
+import PaymentMethods from "./features/student/PaymentMethods";
 import Setting from "./features/student/Setting";
 import Favourite from "./features/student/Favourite";
 import PaymentHistory from "./features/student/PaymentHistory";
-import Notfications from "./features/student/Notfications";
 import NotificationsEmptyIns from "./features/instructor/NotificationsIns/NotificationsEmptyIns";
+import Notifications from "./features/student/Notifications";
+import DashboardCourseDetails from "./features/Dashboard/CourseManagement/DashboardCourseDetails";
+
 import {
   Register,
   ResetPassword,
@@ -60,7 +62,9 @@ const router = createBrowserRouter([
       { path: "/student/setting/payment-methods", element: <PaymentMethods /> },
       { path: "/student/payment-history", element: <PaymentHistory /> },
       { path: "/student/favourites", element: <Favourite /> },
-      { path: "/student/notfications", element: <Notfications /> },
+      { path: "/student/notifications", element: <Notifications /> },
+      { path: "/instructors/courses/:id/lessons", element: <CourseDetails /> },
+
       { path: "/instructors/dashboard", element: <InstructorPage /> },
       { path: "/instructors/courses/:id/lessons", element: <CourseDetails /> },
       { path: "/instructors/Review", element: <Review /> },
@@ -85,6 +89,10 @@ const router = createBrowserRouter([
       { path: "/adminDashboard", element: <DashboardPage /> },
       { path: "/userManagement", element: <UserManagement /> },
       { path: "/courseManagement", element: <CourseManagement /> },
+      {
+        path: "/courseManagement/course-details",
+        element: <DashboardCourseDetails />,
+      },
       { path: "/paymentsRevenue", element: <PaymentsRevenue /> },
       { path: "/reviewsRatings", element: <ReviewsRatings /> },
       { path: "/platformSettings", element: <PlatformSettings /> },
