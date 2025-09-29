@@ -3,7 +3,7 @@ import CourseImage from "../../../assets/images/courseImage.png";
 import VideoImage from "../../../assets/images/videoImage.png";
 
 import { useState } from "react";
-import avatar from "@/assets/images/avatar.png";
+import avatar from "@/assets/icons/user.svg";
 import { format, parseISO } from "date-fns";
 import { FaStar } from "react-icons/fa";
 

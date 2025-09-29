@@ -1,7 +1,6 @@
 import { useLocation, useNavigate } from "react-router";
 import studentImg from "../../assets/images/student.jpg";
 import instructorImg from "../../assets/images/instructor.jpg";
-import adminImg from "../../assets/images/admin.jpg";
 import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -59,7 +58,7 @@ const Register = () => {
   }
 
   return (
-    <div className="grid grid-cols-5 gap-6 px-2 mb-40 mt-40">
+    <div className="grid grid-cols-5 gap-12 px-2 mb-40 mt-40">
       <div className="md:col-span-3 col-span-5">
         <h1 className="font-semibold text-3xl text-center">
           Create {role ? role.charAt(0).toUpperCase() + role.slice(1) : ""}{" "}
@@ -72,7 +71,7 @@ const Register = () => {
             className="space-y-8 max-w-3xl mx-auto py-10"
           >
             <div className="grid grid-cols-12 gap-4">
-              <div className="col-span-6">
+              <div className="col-span-12 sm:col-span-6">
                 <FormField
                   control={form.control}
                   name="firstname"
@@ -95,12 +94,12 @@ const Register = () => {
                 />
               </div>
 
-              <div className="col-span-6 flex">
+              <div className="col-span-12 sm:col-span-6 flex">
                 <FormField
                   control={form.control}
                   name="lastname"
                   render={({ field }) => (
-                    <FormItem>
+                    <FormItem className="flex-grow-1">
                       <FormLabel></FormLabel>
                       <FormControl>
                         <Input
@@ -153,7 +152,7 @@ const Register = () => {
             />
 
             <div className="grid grid-cols-12 gap-4">
-              <div className="col-span-6">
+              <div className="col-span-12 sm:col-span-6">
                 <FormField
                   control={form.control}
                   name="password"
@@ -176,7 +175,7 @@ const Register = () => {
                 />
               </div>
 
-              <div className="col-span-6">
+              <div className="col-span-12 sm:col-span-6">
                 <FormField
                   control={form.control}
                   name="confirmpassword"
@@ -201,7 +200,7 @@ const Register = () => {
             </div>
             <Button
               type="submit"
-              className="bg-green text-white text-sm font-medium py-3 px-6"
+              className="bg-green text-white text-sm font-medium py-3 px-6 w-full sm:w-fit"
             >
               Create Account
             </Button>
