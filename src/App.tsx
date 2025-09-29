@@ -1,13 +1,8 @@
 import { RouterProvider } from "react-router";
 import { createBrowserRouter } from "react-router";
-import {
-  ForgotPasswordInstructor,
-  LoginInstructor,
-  SignupInstructor,
-} from "./features/Auth/Instructor";
 import { Layout, NotFound } from "./layout";
 import BrowseCourses from "./features/student/BrowseCourses";
-import InstructorPage from "./features/instructor/InstructorPage";
+import { InstructorPage } from "./features/instructor";
 import Review from "./features/instructor/Review/Review";
 import Revenue from "./features/instructor/Revenue/Revenue";
 import { QueryClient } from "@tanstack/react-query";
@@ -36,6 +31,7 @@ import Favourite from "./features/student/Favourite";
 import PaymentHistory from "./features/student/PaymentHistory";
 import Notfications from "./features/student/Notfications";
 import NotificationsEmptyIns from "./features/instructor/NotificationsIns/NotificationsEmptyIns";
+import { Register, Welcome } from "./features/Auth";
 
 const client = new QueryClient();
 
@@ -46,8 +42,8 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { path: "/", element: <BrowseCourses /> },
-      { path: "/Instructor/signup", element: <SignupInstructor /> },
-      { path: "/Instructor/login", element: <LoginInstructor /> },
+      { path: "/welcome", element: <Welcome /> },
+      { path: "/register", element: <Register /> },
       { path: "/Student/login", element: <Login /> },
       { path: "/Student/SignUp", element: <SignUp /> },
       { path: "/student/setting", element: <Setting /> },
@@ -56,10 +52,6 @@ const router = createBrowserRouter([
       { path: "/student/favourites", element: <Favourite /> },
       { path: "/student/notfications", element: <Notfications /> },
       { path: "/instructors/courses/:id/lessons", element: <CourseDetails /> },
-      {
-        path: "/Instructor/forgotPassword",
-        element: <ForgotPasswordInstructor />,
-      },
       { path: "/instructors/dashboard", element: <InstructorPage /> },
       { path: "/instructors/Review", element: <Review /> },
       { path: "/instructors/Revenue", element: <Revenue /> },
