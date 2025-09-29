@@ -11,7 +11,7 @@ import { Link } from "react-router"
   const BreadcrumbIns = () => {
     return <>
     <Breadcrumb>
-  <BreadcrumbList>
+  <BreadcrumbList className=" pt-5">
     <BreadcrumbItem>
     <Link to={"/"}>
       <BreadcrumbLink>Home</BreadcrumbLink>

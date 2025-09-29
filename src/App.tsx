@@ -31,6 +31,7 @@ import Setting from "./features/student/Setting";
 import Favourite from "./features/student/Favourite";
 import PaymentHistory from "./features/student/PaymentHistory";
 import NotificationsEmptyIns from "./features/instructor/NotificationsIns/NotificationsEmptyIns";
+import UserProfile from "./features/Dashboard/UserProfile/UserProfile";
 import Notifications from "./features/student/Notifications";
 import DashboardCourseDetails from "./features/Dashboard/CourseManagement/DashboardCourseDetails";
 
@@ -64,8 +65,6 @@ const router = createBrowserRouter([
       { path: "/student/payment-history", element: <PaymentHistory /> },
       { path: "/student/favourites", element: <Favourite /> },
       { path: "/student/notifications", element: <Notifications /> },
-      { path: "/instructors/courses/:id/lessons", element: <CourseDetails /> },
-
       { path: "/instructors/dashboard", element: <InstructorPage /> },
       { path: "/instructors/courses/:id/lessons", element: <CourseDetails /> },
       { path: "/instructors/Review", element: <Review /> },
@@ -100,6 +99,7 @@ const router = createBrowserRouter([
       { path: "/reviewsRatings", element: <ReviewsRatings /> },
       { path: "/platformSettings", element: <PlatformSettings /> },
       { path: "/reportsAnalytics", element: <ReportsAnalytics /> },
+      { path: "/userProfile", element: <UserProfile /> },
       { path: "*", element: <NotFound /> },
       { path: "/student/enrolledCourses", element: <EnrolledCourses /> },
       {

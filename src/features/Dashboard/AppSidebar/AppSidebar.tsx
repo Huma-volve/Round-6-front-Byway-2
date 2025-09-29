@@ -65,42 +65,47 @@ export function AppSidebar() {
   const { state } = useSidebar();
   return (
     <Sidebar className="bg-gray-900">
-      <SidebarHeader className="bg-gray-900 flex items-start">
-        <div className="flex items-center gap-2 mt-3">
-          <img src={Logo} alt="Logo ByWay" />
+    <SidebarHeader className="bg-gray-900 px-4 py-2">
+      {/* نلف العناصر جوا div flex */}
+      <div className="flex items-center justify-between w-full">
+        {/* اللوجو + الاسم */}
+        <div className="flex items-center gap-2">
+          <img src={Logo} alt="Logo ByWay" className="h-8 w-8" />
           {state === "expanded" && (
             <h2 className="text-lg font-medium text-gray-200">ByWay</h2>
           )}
         </div>
-      </SidebarHeader>
-      <SidebarContent className="bg-gray-900">
-        <SidebarGroup>
-          <SidebarGroupLabel></SidebarGroupLabel>
-          <SidebarGroupContent className="">
-            <SidebarMenu className="flex gap-6">
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <NavLink
-                      to={item.url}
-                      className={({ isActive }) =>
-                        isActive
-                          ? "flex items-center gap-4 text-blue-600"
-                          : "flex items-center gap-3 text-gray-300 hover:text-white"
-                      }
-                    >
-                      <item.icon />
-                      <span className="text-base font-medium">
-                        {item.title}
-                      </span>
-                    </NavLink>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-      </SidebarContent>
-    </Sidebar>
+
+      </div>
+    </SidebarHeader>
+  
+    <SidebarContent className="bg-gray-900">
+      <SidebarGroup>
+        <SidebarGroupLabel></SidebarGroupLabel>
+        <SidebarGroupContent>
+          <SidebarMenu className="flex gap-6">
+            {items.map((item) => (
+              <SidebarMenuItem key={item.title}>
+                <SidebarMenuButton asChild>
+                  <NavLink
+                    to={item.url}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "flex items-center gap-4 text-blue-600"
+                        : "flex items-center gap-3 text-gray-300 hover:text-white"
+                    }
+                  >
+                    <item.icon />
+                    <span className="text-base font-medium">{item.title}</span>
+                  </NavLink>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            ))}
+          </SidebarMenu>
+        </SidebarGroupContent>
+      </SidebarGroup>
+    </SidebarContent>
+  </Sidebar>
+  
   );
 }
