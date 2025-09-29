@@ -16,6 +16,9 @@ import PayoutDetails from "./features/instructor/PayoutDetails/PayoutDetails";
 import Continue from "./features/instructor/PayoutDetails/Continue";
 import WithDraw from "./features/instructor/WirhDraw/WithDraw";
 import { Profile } from "./features/instructor/Profile/Profile";
+import EnrolledCourses from "./features/student/EnrolledCourses";
+import EnrolledCourseDetails from "./features/student/EnrolledCourseDetails";
+import EnrolledLessonVideo from "./features/student/EnrolledLessonVideo";
 import { MyCourses } from "./features/instructor/MyCourses/MyCourses";
 import { Provider } from "react-redux";
 import { store } from "./store/Store";
@@ -36,6 +39,8 @@ import Favourite from "./features/student/Favourite";
 import PaymentHistory from "./features/student/PaymentHistory";
 import Notfications from "./features/student/Notfications";
 import NotificationsEmptyIns from "./features/instructor/NotificationsIns/NotificationsEmptyIns";
+import FPassword from "@/features/Auth/Student/ForgetPass";
+import Otp from "@/features/Auth/Student/Otp";
 
 const client = new QueryClient();
 
@@ -56,6 +61,9 @@ const router = createBrowserRouter([
       { path: "/student/favourites", element: <Favourite /> },
       { path: "/student/notfications", element: <Notfications /> },
       { path: "/instructors/courses/:id/lessons", element: <CourseDetails /> },
+      { path: "/Student/forgot-password", element: <FPassword /> },
+      { path: "/Student/otp", element: <Otp /> },
+
       {
         path: "/Instructor/forgotPassword",
         element: <ForgotPasswordInstructor />,
@@ -88,6 +96,15 @@ const router = createBrowserRouter([
       { path: "/platformSettings", element: <PlatformSettings /> },
       { path: "/reportsAnalytics", element: <ReportsAnalytics /> },
       { path: "*", element: <NotFound /> },
+      { path: "/student/enrolledCourses", element: <EnrolledCourses /> },
+      {
+        path: "/student/enrolledCourseDetails/",
+        element: <EnrolledCourseDetails />,
+      },
+      {
+        path: "/student/enrolledLessonVideo/",
+        element: <EnrolledLessonVideo />,
+      },
     ],
   },
 ]);
