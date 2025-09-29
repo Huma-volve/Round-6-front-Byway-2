@@ -11,7 +11,7 @@ export default function DashboardCourseDetails() {
   const [clicked, setClicked] = useState(false);
 
   return (
-    <div className="container mt-10 ml-10 ">
+    <div className="container mt-10 ">
       <div className="flex flex-col items-start gap-3">
         <h1 className="text-[#587DBD] font-medium text-3xl">Courses Details</h1>
         <p className="text-[#0F172A] text-xl">View detailed information .</p>
@@ -51,7 +51,7 @@ export default function DashboardCourseDetails() {
             </div>
           </div>
         )}
-        <div className="rounded-2xl p-4 lg:p-6 border border-gray-border mr-25 mb-5">
+        <div className="rounded-2xl p-4 lg:p-6 border border-gray-border mr-25 mb-5 bg-[#ffffff]">
           <div className="flex gap-4 items-center ">
             <img
               src={avatar}
@@ -60,7 +60,7 @@ export default function DashboardCourseDetails() {
             />
             <p className="font-semibold text-lg mb-2">Mohamed Ali</p>
             <div className="ml-auto mb-10">
-              <div className="flex items-center gap-70">
+              <div className="flex items-center gap-60">
                 <p className="font-semibold text-sm flex gap-1 items-center text-[#727272]">
                   (1200 Rating)
                   <FaStar className="h-4 w-4 text-warning-500" />

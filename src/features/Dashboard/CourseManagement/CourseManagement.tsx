@@ -19,7 +19,7 @@ function CourseManagement() {
   const navigate = useNavigate();
   const [showList, setShowList] = useState(false);
   return (
-    <div className="container mt-10 ml-10">
+    <div className="container mt-10 ">
       <h1 className="text-[#587DBD] font-medium text-3xl mb-5">
         Courses Management
       </h1>
@@ -27,7 +27,7 @@ function CourseManagement() {
         View, filter, and manage all published and pending courses on the
         platform.
       </p>
-      <div className="border-1 rounded-lg overflow-hidden pt-5 mt-5  ">
+      <div className="border-1 rounded-lg overflow-hidden pt-5 mt-5 bg-[#ffffff] ">
         <Table className="border-separate border-spacing-x-4">
           <TableHeader>
             <TableRow>
