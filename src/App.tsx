@@ -40,6 +40,7 @@ import {
   Login,
   ForgetPass,
 } from "./features/Auth";
+import { Payments, Withdrawals } from "./features/Dashboard";
 
 const client = new QueryClient();
 
@@ -86,6 +87,8 @@ const router = createBrowserRouter([
       { path: "/userManagement", element: <UserManagement /> },
       { path: "/courseManagement", element: <CourseManagement /> },
       { path: "/paymentsRevenue", element: <PaymentsRevenue /> },
+      { path: "/paymentsRevenue/withdrawals/:id", element: <Withdrawals /> },
+      { path: "/paymentsRevenue/payments/:id", element: <Payments /> },
       { path: "/reviewsRatings", element: <ReviewsRatings /> },
       { path: "/platformSettings", element: <PlatformSettings /> },
       { path: "/reportsAnalytics", element: <ReportsAnalytics /> },

@@ -7,7 +7,7 @@ function LayoutDashboard() {
     <>
       <SidebarProvider>
         <AppSidebar />
-        <main>
+        <main className="bg-black/10 w-full">
           <SidebarTrigger />
           <Outlet />
         </main>
