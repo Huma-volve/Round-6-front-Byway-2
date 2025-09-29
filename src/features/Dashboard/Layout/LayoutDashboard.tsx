@@ -5,10 +5,10 @@ import { AppSidebar } from "../AppSidebar/AppSidebar";
 function LayoutDashboard() {
   return (
     <>
-      <SidebarProvider>
+      <SidebarProvider defaultOpen>
         <AppSidebar />
-        <main>
-          <SidebarTrigger />
+        <SidebarTrigger />
+        <main className="w-full max-w-[1240px] mx-auto px-4">
           <Outlet />
         </main>
       </SidebarProvider>

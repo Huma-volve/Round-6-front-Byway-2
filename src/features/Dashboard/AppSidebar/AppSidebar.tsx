@@ -90,7 +90,9 @@ export function AppSidebar() {
                       }
                     >
                       <item.icon />
-                      <span className="text-base font-medium">{item.title}</span>
+                      <span className="text-base font-medium">
+                        {item.title}
+                      </span>
                     </NavLink>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
