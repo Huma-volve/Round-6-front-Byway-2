@@ -143,11 +143,16 @@
   html {
     @apply overflow-x-hidden;
   }
+}
 
-  body {
-    @apply bg-background text-foreground overflow-x-hidden;
-  }
-  button {
-    cursor: pointer;
-  }
+.active {
+  @apply text-blue-600
+}
+
+body {
+  @apply bg-background text-foreground overflow-x-hidden;
+}
+
+button {
+  cursor: pointer;
 }

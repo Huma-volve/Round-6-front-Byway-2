@@ -13,7 +13,7 @@ import { Link } from "react-router"
     console.log(navigate)
     return <>
     <Breadcrumb>
-  <BreadcrumbList>
+  <BreadcrumbList className=" pt-5">
     <BreadcrumbItem>
     <Link to={navigate.to}>
       <BreadcrumbLink>{navigate.navigateTO}</BreadcrumbLink>

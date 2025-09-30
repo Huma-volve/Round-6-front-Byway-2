@@ -10,7 +10,7 @@ const NotificationsEmptyIns = () => {
 }
   return <>
   <BreadcrumbIns navigate={navigate}/>
-  <div className="container mt-10 flex flex-col justify-center items-center gap-5">
+  <div className="container flex flex-col justify-center items-center gap-5">
   {localStorage.getItem("token") ? <NotificationsIns /> :<div className="flex flex-col justify-center items-center gap-5"> <img src={icon} className="" alt="" />
     <p className="font-bold">You are all up to date</p>
     <p className="text-gray-500">No new notifications - come back soon</p> </div> 

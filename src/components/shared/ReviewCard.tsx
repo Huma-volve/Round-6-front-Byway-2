@@ -1,5 +1,5 @@
 import type { Review } from "@/types/types";
-import avatar from "@/assets/images/avatar.png";
+import avatar from "@/assets/icons/user.svg";
 import { FaStar } from "react-icons/fa";
 import { format } from "date-fns";
 import { parseISO } from "date-fns";

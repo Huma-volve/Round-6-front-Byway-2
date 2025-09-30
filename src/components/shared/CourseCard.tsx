@@ -21,7 +21,7 @@ const courseCard = ({ courseData }: { courseData: Course }) => {
           {courseData.title}
         </p>
         <p className="text-sm">
-          By <span className="font-bold">{instructorName}</span>
+          By <span>{instructorName}</span>
         </p>
         <div className="flex gap-2 items-center flex-wrap">
           <Rating value={rating} readOnly>
@@ -29,7 +29,7 @@ const courseCard = ({ courseData }: { courseData: Course }) => {
               <RatingButton key={index} className="text-warning-500" />
             ))}
           </Rating>
-          <p>({ratingCount} Ratings)</p>
+          <p className="text-sm font-semibold">({ratingCount} Ratings)</p>
         </div>
         <p className="flex-wrap flex gap-2 text-sm text-gray-700">
           {courseData.lessons_count} Lectures. {courseData.level}
