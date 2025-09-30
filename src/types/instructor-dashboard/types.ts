@@ -23,5 +23,13 @@ export type Review = {
 export type RatingStats = {
   totalRatings: number;
   averageRating: number;
-  percentages: Record<number, number>; // e.g. { 5: 40, 4: 20, 3: 10, 2: 20, 1: 10 }
+  percentages: Record<number, number>; 
 };
+
+
+
+export type Navigate={
+  to:string,
+  navigateTO:string,
+  name:string,
+}

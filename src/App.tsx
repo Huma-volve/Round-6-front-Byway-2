@@ -1,7 +1,7 @@
 import { RouterProvider } from "react-router";
 import { createBrowserRouter } from "react-router";
+import BrowseCourses from "@/features/student/BrowseCourses/BrowseCourses";
 import { Layout, NotFound } from "./layout";
-import BrowseCourses from "./features/student/BrowseCourses";
 import { InstructorPage } from "./features/instructor";
 import Review from "./features/instructor/Review/Review";
 import Revenue from "./features/instructor/Revenue/Revenue";
@@ -31,6 +31,11 @@ import Setting from "./features/student/Setting";
 import Favourite from "./features/student/Favourite";
 import PaymentHistory from "./features/student/PaymentHistory";
 import NotificationsEmptyIns from "./features/instructor/NotificationsIns/NotificationsEmptyIns";
+import StudentCourseDetails from './features/student/courseDetails/CourseDetails';
+import StudentInstractordetails from "./features/student/StudentInstractordetails";
+
+
+import UserProfile from "./features/Dashboard/UserProfile/UserProfile";
 import Notifications from "./features/student/Notifications";
 import DashboardCourseDetails from "./features/Dashboard/CourseManagement/DashboardCourseDetails";
 
@@ -44,6 +49,7 @@ import {
 } from "./features/Auth";
 import { Payments, Withdrawals } from "./features/Dashboard";
 
+
 const client = new QueryClient();
 
 const router = createBrowserRouter([
@@ -53,6 +59,21 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { path: "/", element: <BrowseCourses /> },
+      { path: "/Student/login", element: <Login /> },
+      { path: "/Student/StudentCourseDetails", element: <StudentCourseDetails /> },
+      { path: "/Student/StudentInstractordetails", element: <StudentInstractordetails /> },
+      {
+        path: "/Instructor/forgotPassword",
+      },
+      { path: "/instructors/dashboard", element: <InstructorPage /> },
+      { path: "/instructors/Review", element: <Review /> },
+      { path: "/instructors/Revenue", element: <Revenue /> },
+      { path: "/instructors/Continue", element: <Continue /> },
+      { path: "/instructors/PayoutDetails", element: <PayoutDetails /> },
+      { path: "/instructors/NotificationsEmptyIns", element: <NotificationsEmptyIns /> },
+      { path: "/instructors/WithDraw", element: <WithDraw /> },
+      { path: "/profile", element: <Profile /> },
+      { path: "*", element: <NotFound /> },
       { path: "/welcome", element: <Welcome /> },
       { path: "/register", element: <Register /> },
       { path: "/reset-password", element: <ResetPassword /> },
@@ -64,8 +85,6 @@ const router = createBrowserRouter([
       { path: "/student/payment-history", element: <PaymentHistory /> },
       { path: "/student/favourites", element: <Favourite /> },
       { path: "/student/notifications", element: <Notifications /> },
-      { path: "/instructors/courses/:id/lessons", element: <CourseDetails /> },
-
       { path: "/instructors/dashboard", element: <InstructorPage /> },
       { path: "/instructors/courses/:id/lessons", element: <CourseDetails /> },
       { path: "/instructors/Review", element: <Review /> },
@@ -100,6 +119,7 @@ const router = createBrowserRouter([
       { path: "/reviewsRatings", element: <ReviewsRatings /> },
       { path: "/platformSettings", element: <PlatformSettings /> },
       { path: "/reportsAnalytics", element: <ReportsAnalytics /> },
+      { path: "/userProfile", element: <UserProfile /> },
       { path: "*", element: <NotFound /> },
       { path: "/student/enrolledCourses", element: <EnrolledCourses /> },
       {
