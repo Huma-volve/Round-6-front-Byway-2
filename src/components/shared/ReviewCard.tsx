@@ -1,4 +1,4 @@
-import type { Review } from "@/types/types";
+import type { Review } from "@/types/instructor-dashboard/types";
 import avatar from "@/assets/icons/user.svg";
 import { FaStar } from "react-icons/fa";
 import { format } from "date-fns";

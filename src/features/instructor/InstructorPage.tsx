@@ -7,7 +7,11 @@ import {
   ReviewCard,
   ReviewCardSkeleton,
 } from "@/components/shared";
-import type { Course, RatingStats, Review } from "@/types/types";
+import type {
+  Course,
+  RatingStats,
+  Review,
+} from "@/types/instructor-dashboard/types";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { calculateRatingStats } from "@/lib/utils";
