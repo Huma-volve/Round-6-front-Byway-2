@@ -5,9 +5,9 @@ const Layout = () => {
   return (
     <>
       <Navbar />
-      <div className="m-auto w-full max-w-[1240px] px-4">
+      <main className="mt-35 w-full max-w-[1240px] mx-auto px-4">
         <Outlet />
-      </div>
+      </main>
       <Footer />
     </>
   );
