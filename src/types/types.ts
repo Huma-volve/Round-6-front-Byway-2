@@ -25,3 +25,11 @@ export type RatingStats = {
   averageRating: number;
   percentages: Record<number, number>; 
 };
+
+
+
+export type Navigate={
+  to:string,
+  navigateTO:string,
+  name:string,
+}
