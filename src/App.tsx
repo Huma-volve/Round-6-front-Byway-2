@@ -42,6 +42,7 @@ import NotificationsEmptyIns from "./features/instructor/NotificationsIns/Notifi
 import FPassword from "@/features/Auth/Student/ForgetPass";
 import Otp from "@/features/Auth/Student/Otp";
 import ShoppingCart from "@/features/student/ShoppingCart";
+import Payment from "@/features/student/Payment";
 import PaymentSuccess from "@/features/student/PaymentSuccess";
 
 const client = new QueryClient();
