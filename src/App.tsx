@@ -48,6 +48,7 @@ import {
   ForgetPass,
 } from "./features/Auth";
 import { Payments, Withdrawals } from "./features/Dashboard";
+import ViewFullReview from "./features/Dashboard/ReviewsRatings/ViewFullReview";
 
 
 const client = new QueryClient();
@@ -117,6 +118,7 @@ const router = createBrowserRouter([
       { path: "/paymentsRevenue/withdrawals/:id", element: <Withdrawals /> },
       { path: "/paymentsRevenue/payments/:id", element: <Payments /> },
       { path: "/reviewsRatings", element: <ReviewsRatings /> },
+      { path: "/reviewsRatings/viewFullReview/:id", element: <ViewFullReview /> },
       { path: "/platformSettings", element: <PlatformSettings /> },
       { path: "/reportsAnalytics", element: <ReportsAnalytics /> },
       { path: "/userProfile", element: <UserProfile /> },
