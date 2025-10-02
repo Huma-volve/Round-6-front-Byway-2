@@ -2,11 +2,20 @@ import type { enrolledCourse, enrolledCourseDetails } from "@/types/Sylvia/types
 import courseImg from "../../../src/assets/images/course1.png";
 import { useState } from "react";
 import ShowLessons from "@/components/Sylvia/showLessons";
+import ReviewPopup from "@/components/Sylvia/ReviewPopup"
+
 
 
 const EnrolledCourseDetails = () => {
     const instructorName = "sylvia yousif"; // from course data
     const [openMenu, setOpenMenu] = useState(false);
+
+    const [openFeedback, setOpenFeedback] = useState(false)
+
+    const fetchReviews = (courseId: string) => {
+        console.log("fetching reviews for course:", courseId)
+        // TODO: fetch reviews API here
+    }
 
     const courseData: enrolledCourse = {
         id: 52,
@@ -39,14 +48,14 @@ const EnrolledCourseDetails = () => {
 
     return (
         <>
-            <div className="container w-[90%] m-auto">
-                <article className="flex gap-6 items-start flex-row-reverse m-auto my-10 justify-between">
+            <div className="container w-[90%] m-auto my-[100px] ">
+                <article className="flex gap-6 items-start flex-row-reverse max-sm:flex-col max-sm:items-center m-auto my-10 justify-between">
                     <img
                         src={courseData.image}
                         alt="course cover photo"
-                        className="rounded-[8px] w-[45%] object-cover object-top mb-4"
+                        className="rounded-[8px] w-[45%] max-sm:w-full object-cover object-top mb-4"
                     />
-                    <div className="flex flex-col gap-2 p-4 rounded-[15px] w-[40%]">
+                    <div className="flex flex-col gap-2 p-4 rounded-[15px] w-[40%] max-sm:w-full">
                         <p className="font-semibold text-gray-900 text-lg lg:text-3xl capitalize">
                             {courseData.title}
                         </p>
@@ -74,13 +83,20 @@ const EnrolledCourseDetails = () => {
                         onClick={() => setOpenMenu(!openMenu)}>
                         lessons
                     </button>
-                    <button className="bg-gray-500 font-semibold text-white text-xl px-6 py-3 rounded-2xl mt-4 hover:bg-gray-600 transition cursor-pointer">
+                    <button
+                        onClick={() => setOpenFeedback(true)}
+                        className="bg-gray-500 font-semibold text-white text-xl px-6 py-3 rounded-2xl mt-4 hover:bg-gray-600 transition cursor-pointer">
                         Give Feedback
                     </button>
 
 
                 </div>
                 {openMenu && <ShowLessons />}
+                <ReviewPopup
+                    open={openFeedback}
+                    onClose={() => setOpenFeedback(false)}
+                    onSubmitSuccess={() => fetchReviews("52")}
+                />
             </div >
         </>
     );

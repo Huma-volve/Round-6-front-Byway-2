@@ -17,6 +17,28 @@ export type enrolledCourse = {
     created_at: string;
 };
 
+// cart 
+
+export type courseDetails = {
+    id: number,
+    instructor_id: number,
+    category_id: null,
+    title: string,
+    description: string,
+    price: string,
+    compare_price: string,
+    image: string,
+    cover_public_id: string,
+    lessons_count: number,
+    level: string,
+    duration_hours: number,
+    total_minutes: number,
+    video_provider: null,
+    status: string,
+    created_at: string,
+    updated_at: string,
+}
+
 export type lesson = {
     id: number;
     title: string;
@@ -33,3 +55,22 @@ export type enrolledCourseDetails = {
     lessons: lesson[];
 }
         
+
+
+// review popup
+
+export type ReviewPopupProps = {
+    open: boolean
+    onClose: () => void
+    onSubmitSuccess: () => void
+}
+
+
+
+// payment 
+
+export type PaymentCourseDetails = {
+    id: number,
+    title: string,
+    price: string
+}
