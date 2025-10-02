@@ -4,7 +4,7 @@ import { Heart } from "lucide-react";
 export default function Favourite() {
   const [active, setActive] = useState<"courses" | "instructor">("courses");
   return (
-    <div className="container mx-auto mt-20">
+    <div className="container mx-auto mt-[10%]">
       <div className="bg-[#F1F1F1] rounded-3xl flex justify-between w-xs">
         <button
           onClick={() => setActive("courses")}

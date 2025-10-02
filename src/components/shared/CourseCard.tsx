@@ -1,4 +1,4 @@
-import type { Course } from "@/types/types";
+import type { Course } from "@/types/instructor-dashboard/types";
 import { Rating, RatingButton } from "@/components/ui/shadcn-io/rating";
 
 const courseCard = ({ courseData }: { courseData: Course }) => {

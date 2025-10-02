@@ -7,7 +7,11 @@ import {
   ReviewCard,
   ReviewCardSkeleton,
 } from "@/components/shared";
-import type { Course, RatingStats, Review } from "@/types/types";
+import type {
+  Course,
+  RatingStats,
+  Review,
+} from "@/types/instructor-dashboard/types";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { calculateRatingStats } from "@/lib/utils";
@@ -292,7 +296,7 @@ const InstructorPage = () => {
   }, []);
 
   return (
-    <div>
+    <div className="mt-40">
       {/* The header */}
       <header className="flex flex-col md:flex-row justify-between gap-16 mt-10 mb-24">
         <div className="text-gray-700 text-2xl font-medium">
@@ -360,7 +364,7 @@ const InstructorPage = () => {
           >
             {coursesList.map((courseObj) => (
               <SwiperSlide key={courseObj.id} className="!w-fit">
-                <Link to={`/instructor/courses/${courseObj.id}/lessons`}>
+                <Link to={`/instructors/courses/${courseObj.id}/lessons`}>
                   <CourseCard courseData={courseObj} />
                 </Link>
               </SwiperSlide>

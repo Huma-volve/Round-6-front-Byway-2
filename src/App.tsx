@@ -1,13 +1,8 @@
 import { RouterProvider } from "react-router";
 import { createBrowserRouter } from "react-router";
-import {
-  ForgotPasswordInstructor,
-  LoginInstructor,
-  SignupInstructor,
-} from "./features/Auth/Instructor";
+import BrowseCourses from "@/features/student/BrowseCourses/BrowseCourses";
 import { Layout, NotFound } from "./layout";
-import BrowseCourses from "./features/student/BrowseCourses";
-import InstructorPage from "./features/instructor/InstructorPage";
+import { InstructorPage } from "./features/instructor";
 import Review from "./features/instructor/Review/Review";
 import Revenue from "./features/instructor/Revenue/Revenue";
 import { QueryClient } from "@tanstack/react-query";
@@ -31,19 +26,35 @@ import ReviewsRatings from "./features/Dashboard/ReviewsRatings/ReviewsRatings";
 import PlatformSettings from "./features/Dashboard/PlatformSettings/PlatformSettings";
 import ReportsAnalytics from "./features/Dashboard/ReportsAnalytics/ReportsAnalytics";
 import CourseDetails from "./features/InstructorCourseDetails/CourseDetails";
-import Login from "./features/Auth/Student/Login";
-import SignUp from "./features/Auth/Student/SignUp";
-import PaymentMethods from "./features/student/PaymentMehods";
+import PaymentMethods from "./features/student/PaymentMethods";
 import Setting from "./features/student/Setting";
 import Favourite from "./features/student/Favourite";
 import PaymentHistory from "./features/student/PaymentHistory";
-import Notfications from "./features/student/Notfications";
 import NotificationsEmptyIns from "./features/instructor/NotificationsIns/NotificationsEmptyIns";
 import FPassword from "@/features/Auth/Student/ForgetPass";
 import Otp from "@/features/Auth/Student/Otp";
 import ShoppingCart from "@/features/student/ShoppingCart";
 import Payment from "@/features/student/Payment";
 import PaymentSuccess from "@/features/student/PaymentSuccess";
+import StudentCourseDetails from './features/student/courseDetails/CourseDetails';
+import StudentInstractordetails from "./features/student/StudentInstractordetails";
+
+
+import UserProfile from "./features/Dashboard/UserProfile/UserProfile";
+import Notifications from "./features/student/Notifications";
+import DashboardCourseDetails from "./features/Dashboard/CourseManagement/DashboardCourseDetails";
+
+import {
+  Register,
+  ResetPassword,
+  Welcome,
+  Otp,
+  Login,
+  ForgetPass,
+} from "./features/Auth";
+import { Payments, Withdrawals } from "./features/Dashboard";
+import ViewFullReview from "./features/Dashboard/ReviewsRatings/ViewFullReview";
+
 
 const client = new QueryClient();
 
@@ -54,18 +65,32 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { path: "/", element: <BrowseCourses /> },
-      { path: "/Instructor/signup", element: <SignupInstructor /> },
-      { path: "/Instructor/login", element: <LoginInstructor /> },
       { path: "/Student/login", element: <Login /> },
-      { path: "/Student/SignUp", element: <SignUp /> },
+      { path: "/Student/StudentCourseDetails", element: <StudentCourseDetails /> },
+      { path: "/Student/StudentInstractordetails", element: <StudentInstractordetails /> },
+      {
+        path: "/Instructor/forgotPassword",
+      },
+      { path: "/instructors/dashboard", element: <InstructorPage /> },
+      { path: "/instructors/Review", element: <Review /> },
+      { path: "/instructors/Revenue", element: <Revenue /> },
+      { path: "/instructors/Continue", element: <Continue /> },
+      { path: "/instructors/PayoutDetails", element: <PayoutDetails /> },
+      { path: "/instructors/NotificationsEmptyIns", element: <NotificationsEmptyIns /> },
+      { path: "/instructors/WithDraw", element: <WithDraw /> },
+      { path: "/profile", element: <Profile /> },
+      { path: "*", element: <NotFound /> },
+      { path: "/welcome", element: <Welcome /> },
+      { path: "/register", element: <Register /> },
+      { path: "/reset-password", element: <ResetPassword /> },
+      { path: "/login", element: <Login /> },
+      { path: "/otp", element: <Otp /> },
+      { path: "/forgot-password", element: <ForgetPass /> },
       { path: "/student/setting", element: <Setting /> },
       { path: "/student/setting/payment-methods", element: <PaymentMethods /> },
       { path: "/student/payment-history", element: <PaymentHistory /> },
       { path: "/student/favourites", element: <Favourite /> },
       { path: "/student/notfications", element: <Notfications /> },
-      { path: "/instructors/courses/:id/lessons", element: <CourseDetails /> },
-      { path: "/Student/forgot-password", element: <FPassword /> },
-      { path: "/Student/otp", element: <Otp /> },
       { path: "/student/enrolledCourses", element: <EnrolledCourses /> },
       { path: "/student/enrolledCourseDetails/", element: <EnrolledCourseDetails /> },
       { path: "/student/enrolledLessonVideo/", element: <EnrolledLessonVideo /> },
@@ -76,7 +101,9 @@ const router = createBrowserRouter([
         path: "/Instructor/forgotPassword",
         element: <ForgotPasswordInstructor />,
       },
+      { path: "/student/notifications", element: <Notifications /> },
       { path: "/instructors/dashboard", element: <InstructorPage /> },
+      { path: "/instructors/courses/:id/lessons", element: <CourseDetails /> },
       { path: "/instructors/Review", element: <Review /> },
       { path: "/instructors/Revenue", element: <Revenue /> },
       { path: "/instructors/Continue", element: <Continue /> },
@@ -99,10 +126,18 @@ const router = createBrowserRouter([
       { path: "/adminDashboard", element: <DashboardPage /> },
       { path: "/userManagement", element: <UserManagement /> },
       { path: "/courseManagement", element: <CourseManagement /> },
+      {
+        path: "/courseManagement/course-details",
+        element: <DashboardCourseDetails />,
+      },
       { path: "/paymentsRevenue", element: <PaymentsRevenue /> },
+      { path: "/paymentsRevenue/withdrawals/:id", element: <Withdrawals /> },
+      { path: "/paymentsRevenue/payments/:id", element: <Payments /> },
       { path: "/reviewsRatings", element: <ReviewsRatings /> },
+      { path: "/reviewsRatings/viewFullReview/:id", element: <ViewFullReview /> },
       { path: "/platformSettings", element: <PlatformSettings /> },
       { path: "/reportsAnalytics", element: <ReportsAnalytics /> },
+      { path: "/userProfile", element: <UserProfile /> },
       { path: "*", element: <NotFound /> },
 
     ],
