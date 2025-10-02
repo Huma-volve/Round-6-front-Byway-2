@@ -41,6 +41,9 @@ import Notfications from "./features/student/Notfications";
 import NotificationsEmptyIns from "./features/instructor/NotificationsIns/NotificationsEmptyIns";
 import FPassword from "@/features/Auth/Student/ForgetPass";
 import Otp from "@/features/Auth/Student/Otp";
+import ShoppingCart from "@/features/student/ShoppingCart";
+import Payment from "@/features/student/Payment";   
+import PaymentSuccess from "@/features/student/PaymentSuccess";
 
 const client = new QueryClient();
 
@@ -63,7 +66,12 @@ const router = createBrowserRouter([
       { path: "/instructors/courses/:id/lessons", element: <CourseDetails /> },
       { path: "/Student/forgot-password", element: <FPassword /> },
       { path: "/Student/otp", element: <Otp /> },
-
+      { path: "/student/enrolledCourses", element: <EnrolledCourses /> },
+      { path: "/student/enrolledCourseDetails/", element: <EnrolledCourseDetails /> },
+      { path: "/student/enrolledLessonVideo/", element: <EnrolledLessonVideo /> },
+      { path: "/student/shoppingCart/", element: <ShoppingCart /> },
+      { path: "/student/payment/", element: <Payment /> },
+      { path: "/student/payment/success", element: <PaymentSuccess /> },
       {
         path: "/Instructor/forgotPassword",
         element: <ForgotPasswordInstructor />,
@@ -96,15 +104,7 @@ const router = createBrowserRouter([
       { path: "/platformSettings", element: <PlatformSettings /> },
       { path: "/reportsAnalytics", element: <ReportsAnalytics /> },
       { path: "*", element: <NotFound /> },
-      { path: "/student/enrolledCourses", element: <EnrolledCourses /> },
-      {
-        path: "/student/enrolledCourseDetails/",
-        element: <EnrolledCourseDetails />,
-      },
-      {
-        path: "/student/enrolledLessonVideo/",
-        element: <EnrolledLessonVideo />,
-      },
+
     ],
   },
 ]);

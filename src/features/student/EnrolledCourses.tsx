@@ -22,7 +22,7 @@ const coursesData: coursesList = [courseData, courseData, courseData, courseData
 const EnrolledCourses = () => {
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-y-10 gap-x-5 m-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-y-10 gap-x-5 m-auto my-[100px] ">
             {coursesData.map((course) => (
                 <EnrolledCourseComponent
                     key={course.id}
