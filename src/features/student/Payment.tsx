@@ -5,6 +5,8 @@ import Fawry from "../../assets/images/atm.png";
 import EWallet from "../../assets/images/e-wallet.png";
 import Card from "../../assets/images/noto_credit-card.png";
 import { useNavigate } from "react-router";
+import BreadcrumbIns from "@/components/shared/BreadcrumbIns"
+
 
 export default function Payment() {
     const CourseDetails = { id: 1, title: "React", price: "400" };
@@ -48,7 +50,8 @@ export default function Payment() {
     };
 
     return (
-        <div className="container mx-auto mt-20">
+        <div className="container mx-auto mt-[100px]">
+            <BreadcrumbIns navigate={{ to: "/", navigateTO: "details Courses", name: "Payment" }} />
             <div className="p-6 border rounded-lg">
                 <h2 className="font-semibold text-[#1C1C1E] text-2xl mb-2">
                     Course: <span className="text-blue-700">{CourseDetails.title}</span>

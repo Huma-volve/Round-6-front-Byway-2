@@ -1,33 +1,10 @@
+// src/redux/slices/userSlice.ts
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { UserState } from "@/types/managment/managment";
+import users from "@/json";
 
 const initialState: UserState = {
-  users: [
-    {
-      id: 1,
-      name: "Nour Ali",
-      email: "nour@mail.com",
-      status: "Active",
-      role: "Learner",
-      regDate: "2024-06-15",
-    },
-    {
-      id: 2,
-      name: "Omar Tarek",
-      email: "omar@mail.com",
-      status: "Blocked",
-      role: "Instructor",
-      regDate: "2024-05-12",
-    },
-    {
-      id: 3,
-      name: "Salma Ahmed",
-      email: "salma@mail.com",
-      status: "Active",
-      role: "Learner",
-      regDate: "2024-05-10",
-    },
-  ],
+  users,
 };
 
 const userSlice = createSlice({

@@ -1,6 +1,8 @@
 import type { enrolledCourseDetails } from "@/types/Sylvia/types";
 import courseImg from "../../../src/assets/images/course1.png";
 import ShowLessons from "@/components/Sylvia/showLessons";
+import BreadcrumbIns from "@/components/shared/BreadcrumbIns"
+
 
 const EnrolledLessonVideo = () => {
 
@@ -14,6 +16,7 @@ const EnrolledLessonVideo = () => {
     return (
         <>
             <div className="container w-[90%] m-auto my-[100px] ">
+                <BreadcrumbIns navigate={{ to: "/student/enrolledCourseDetails", navigateTO: "Course details", name: `Lesson ${lessons[0].id}` }} />
                 <div className="mt-10 w-full">
                     <>
                         <div className="flex flex-col gap-10 mb-15">

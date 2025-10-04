@@ -3,6 +3,7 @@ import courseImg from "../../../src/assets/images/course1.png";
 import { useState } from "react";
 import ShowLessons from "@/components/Sylvia/showLessons";
 import ReviewPopup from "@/components/Sylvia/ReviewPopup"
+import BreadcrumbIns from "@/components/shared/BreadcrumbIns"
 
 
 
@@ -49,6 +50,8 @@ const EnrolledCourseDetails = () => {
     return (
         <>
             <div className="container w-[90%] m-auto my-[100px] ">
+                <BreadcrumbIns navigate={{ to: "/student/enrolledCourses", navigateTO: "My Courses", name: "Course details" }} />
+
                 <article className="flex gap-6 items-start flex-row-reverse max-sm:flex-col max-sm:items-center m-auto my-10 justify-between">
                     <img
                         src={courseData.image}
