@@ -1,18 +1,23 @@
 import { RouterProvider } from "react-router";
 import { createBrowserRouter } from "react-router";
-import {
-  ForgotPasswordInstructor,
-  LoginInstructor,
-  SignupInstructor,
-} from "./features/Auth/Instructor";
+import BrowseCourses from "@/features/student/BrowseCourses/BrowseCourses";
 import { Layout, NotFound } from "./layout";
-import BrowseCourses from "./features/student/BrowseCourses";
-import InstructorPage from "./features/instructor/InstructorPage";
+import { InstructorPage } from "./features/instructor";
+import Review from "./features/instructor/Review/Review";
+import Revenue from "./features/instructor/Revenue/Revenue";
+import { QueryClientProvider } from "@tanstack/react-query";
+import PayoutDetails from "./features/instructor/PayoutDetails/PayoutDetails";
+import Continue from "./features/instructor/PayoutDetails/Continue";
+import WithDraw from "./features/instructor/WirhDraw/WithDraw";
 import { Profile } from "./features/instructor/Profile/Profile";
+import { Provider } from "react-redux";
+import { store } from "./store/Store";
+import ReportsAnalytics from "./features/Dashboard/ReportsAnalytics/ReportsAnalytics";
 import CourseDetails from "./features/InstructorCourseDetails/CourseDetails";
 import AddCourse from "./features/InstructorCourseDetails/AddCourse";
 import PlatformSetting from "./features/PlatformSetting/PlatformSetting";
-import ReportsAnalytics from "./features/ReportsAnalytics/ReportsAnalytics";
+import Notifications from "./features/student/Notifications";
+import NotificationsEmptyIns from "./features/instructor/NotificationsIns/NotificationsEmptyIns";
 
 const router = createBrowserRouter([
   {
@@ -27,9 +32,21 @@ const router = createBrowserRouter([
         path: "/Instructor/forgotPassword",
         element: <ForgotPasswordInstructor />,
       },
-      { path: "/Instructor/dashboard", element: <InstructorPage /> },
+      { path: "/student/notifications", element: <Notifications /> },
+      { path: "/instructors/dashboard", element: <InstructorPage /> },
+      { path: "/instructors/courses/:id/lessons", element: <CourseDetails /> },
+      { path: "/instructors/Review", element: <Review /> },
+      { path: "/instructors/Revenue", element: <Revenue /> },
+      { path: "/instructors/Continue", element: <Continue /> },
+      { path: "/instructors/PayoutDetails", element: <PayoutDetails /> },
+      {
+        path: "/instructors/NotificationsEmptyIns",
+        element: <NotificationsEmptyIns />,
+      },
+      { path: "/instructors/WithDraw", element: <WithDraw /> },
       { path: "/profile", element: <Profile /> },
       { path: "*", element: <NotFound /> },
+
       {path:"/instructor/courses/:id/lessons", element:<CourseDetails/>},
       {path: "/AddCourse" , element:<AddCourse/>},
       {path:"/PlatformSetting" , element:<PlatformSetting/>},
@@ -39,7 +56,13 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <QueryClientProvider client={client}>
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
+    </QueryClientProvider>
+  );
 }
 
 export default App;
