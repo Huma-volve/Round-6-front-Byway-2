@@ -10,8 +10,9 @@ const Toast = () => {
             <FaCheckDouble />
             <span className="sr-only">Refresh icon</span>
         </div>
-        <div className="ms-3 text-sm font-normal">
-            <span className="mb-1 text-lg font-bold text-white dark:text-white">Thanks This Transaction is Successful</span>
+        <div className="ms-3 text-sm font-normal flex flex-col gap-1">
+            <span className="mb-1 text-lg font-bold text-white ">Thanks This Transaction is Successful Wait a Secound</span>
+            <span className="mb-1 text-lg font-semibold text-blue-600 ">Wait a Secound</span>
         </div>
 
     </div>

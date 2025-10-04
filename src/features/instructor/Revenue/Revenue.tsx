@@ -4,9 +4,10 @@ import Transactions from "./Transactions"
 import Input from "@/components/shared/Input"
 import { IoFilter } from "react-icons/io5";
 import { NavLink } from "react-router";
+import React from "react";
 
 
-const Revenue = () => {
+const Revenue = React.memo(() => {
   return<>
   <div className="container mt-10">
     <h2 className="text-2xl font-bold">Revenue Analytics</h2>
@@ -52,6 +53,6 @@ const Revenue = () => {
     </section>
   </div>
   </>
-}
+})
 
 export default Revenue
