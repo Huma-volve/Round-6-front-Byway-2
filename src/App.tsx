@@ -8,7 +8,6 @@ import Revenue from "./features/instructor/Revenue/Revenue";
 import { QueryClient } from "@tanstack/react-query";
 import { QueryClientProvider } from "@tanstack/react-query";
 import PayoutDetails from "./features/instructor/PayoutDetails/PayoutDetails";
-import Continue from "./features/instructor/PayoutDetails/Continue";
 import WithDraw from "./features/instructor/WirhDraw/WithDraw";
 import { Profile } from "./features/instructor/Profile/Profile";
 import EnrolledCourses from "./features/student/EnrolledCourses";
@@ -100,7 +99,6 @@ const router = createBrowserRouter([
       { path: "/instructors/courses/:id/lessons", element: <CourseDetails /> },
       { path: "/instructors/Review", element: <Review /> },
       { path: "/instructors/Revenue", element: <Revenue /> },
-      { path: "/instructors/Continue", element: <Continue /> },
       { path: "/instructors/PayoutDetails", element: <PayoutDetails /> },
       {
         path: "/instructors/NotificationsEmptyIns",
@@ -131,7 +129,7 @@ const router = createBrowserRouter([
       { path: "/reviewsRatings/viewFullReview/:id", element: <ViewFullReview /> },
       { path: "/platformSettings", element: <PlatformSettings /> },
       { path: "/reportsAnalytics", element: <ReportsAnalytics /> },
-      { path: "/userProfile", element: <UserProfile /> },
+      { path: "/userProfile/:id", element: <UserProfile /> },
       { path: "*", element: <NotFound /> },
 
     ],
