@@ -26,7 +26,7 @@ import { NavLink } from "react-router";
   
         <DropdownMenuContent className="font-bold p-2 min-w-[150px]">
           <DropdownMenuItem className="text-green-500 text-center">
-            <NavLink to={`/userProfile`}>
+            <NavLink to={`/userProfile/${user.id}`}>
             View Profile
             </NavLink>
           </DropdownMenuItem>

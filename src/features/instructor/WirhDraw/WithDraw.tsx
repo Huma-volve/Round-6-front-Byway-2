@@ -21,10 +21,10 @@ const WithDraw = () => {
 
       <div className="space-y-2">
         <p>
-          Available Balance: <span className="font-bold">+ $44,340</span>
+        available_balance: <span className="font-semibold">+ $44,340</span>
         </p>
         <p>
-          Minimum Withdrawal: <span className="font-bold">$40,340</span>
+        minimum_withdrawal: <span className="font-semibold">$40,340</span>
         </p>
       </div>
 
@@ -49,11 +49,11 @@ const WithDraw = () => {
         Next
       </Button>
 
-      {showToast && (
+     {showToast && (
         <div className="fixed bottom-4 right-4">
           <Toast />
         </div>
-      )}
+      )} 
     </section>
   )
 }
