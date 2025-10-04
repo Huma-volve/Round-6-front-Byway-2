@@ -31,10 +31,8 @@ import Setting from "./features/student/Setting";
 import Favourite from "./features/student/Favourite";
 import PaymentHistory from "./features/student/PaymentHistory";
 import NotificationsEmptyIns from "./features/instructor/NotificationsIns/NotificationsEmptyIns";
-import FPassword from "@/features/Auth/Student/ForgetPass";
-import Otp from "@/features/Auth/Student/Otp";
 import ShoppingCart from "@/features/student/ShoppingCart";
-import Payment from "@/features/student/Payment";   
+import Payment from "@/features/student/Payment";
 import PaymentSuccess from "@/features/student/PaymentSuccess";
 import StudentCourseDetails from './features/student/courseDetails/CourseDetails';
 import StudentInstractordetails from "./features/student/StudentInstractordetails";
@@ -90,17 +88,13 @@ const router = createBrowserRouter([
       { path: "/student/setting/payment-methods", element: <PaymentMethods /> },
       { path: "/student/payment-history", element: <PaymentHistory /> },
       { path: "/student/favourites", element: <Favourite /> },
-      { path: "/student/notfications", element: <Notfications /> },
+      { path: "/student/notfications", element: <Notifications /> },
       { path: "/student/enrolledCourses", element: <EnrolledCourses /> },
       { path: "/student/enrolledCourseDetails/", element: <EnrolledCourseDetails /> },
       { path: "/student/enrolledLessonVideo/", element: <EnrolledLessonVideo /> },
       { path: "/student/shoppingCart/", element: <ShoppingCart /> },
       { path: "/student/payment/", element: <Payment /> },
       { path: "/student/payment/success", element: <PaymentSuccess /> },
-      {
-        path: "/Instructor/forgotPassword",
-        element: <ForgotPasswordInstructor />,
-      },
       { path: "/student/notifications", element: <Notifications /> },
       { path: "/instructors/dashboard", element: <InstructorPage /> },
       { path: "/instructors/courses/:id/lessons", element: <CourseDetails /> },
