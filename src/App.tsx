@@ -10,6 +10,9 @@ import BrowseCourses from "./features/student/BrowseCourses";
 import InstructorPage from "./features/instructor/InstructorPage";
 import { Profile } from "./features/instructor/Profile/Profile";
 import CourseDetails from "./features/InstructorCourseDetails/CourseDetails";
+import AddCourse from "./features/InstructorCourseDetails/AddCourse";
+import PlatformSetting from "./features/PlatformSetting/PlatformSetting";
+import ReportsAnalytics from "./features/ReportsAnalytics/ReportsAnalytics";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +30,10 @@ const router = createBrowserRouter([
       { path: "/Instructor/dashboard", element: <InstructorPage /> },
       { path: "/profile", element: <Profile /> },
       { path: "*", element: <NotFound /> },
-      {path:"/instructor/courses/:id/lessons", element:<CourseDetails/>}
+      {path:"/instructor/courses/:id/lessons", element:<CourseDetails/>},
+      {path: "/AddCourse" , element:<AddCourse/>},
+      {path:"/PlatformSetting" , element:<PlatformSetting/>},
+      {path:"/ReportsAnalytics", element:<ReportsAnalytics/>}
     ],
   },
 ]);

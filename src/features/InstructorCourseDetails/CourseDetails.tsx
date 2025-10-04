@@ -1,6 +1,6 @@
 import type { CourseResponse } from "@/types.ts/types";
 import CourseImage from "../../assets/images/46d2a2e63f8edfbb3b98e709fc5a9c081abd6897.png";
-import InstructorImage from "../../assets/images/9bbcf2a8f6d1f753b286332b007b2076174bf01a.png";
+import studentImage from "../../assets/images/9bbcf2a8f6d1f753b286332b007b2076174bf01a.png";
 import { Star } from 'lucide-react';
 import { useEffect, useState } from "react";
 import { fetchCourseDetails } from "@/api/api";
@@ -38,7 +38,7 @@ export default function CourseDetails() {
                 <div className='flex items-center gap-5'>
 
                 <div className="flex items-center gap-3">
-                    <img src={InstructorImage} alt='instructor image' className='w-20 h-20 rounded-full'/>
+                    <img src={studentImage} alt='student image' className='w-20 h-20 rounded-full'/>
                     <h1 className="text-xl font-medium">Mohamed ali</h1>
                 </div>
                 <div className='flex items-center gap-2'>
