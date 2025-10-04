@@ -13,7 +13,7 @@ import type {
   Review,
 } from "@/types/instructor-dashboard/types";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
+
 import { calculateRatingStats } from "@/lib/utils";
 import { Rating, RatingButton } from "@/components/ui/shadcn-io/rating";
 import { FaStar } from "react-icons/fa";
