@@ -1,4 +1,4 @@
-import avatar from "@/assets/icons/user.svg";
+import avatar from "@/assets/images/admin.jpg";
 import { CourseCard } from "@/components/shared";
 import image from "@/assets/images/course-image.png";
 import ReviewCard from "./../../components/shared/ReviewCard";
@@ -98,9 +98,11 @@ export default function StudentInstractordetails() {
         <BreadcrumbIns navigate={navigate} />
       </div>
       <div className="flex items-center gap-4 ps-5 ">
-        <div className="w-20 h-20 rounded-full">
-          <img src={details.image || avatar} alt="" className="" />
-        </div>
+        <img
+          src={details.image || avatar}
+          alt=""
+          className="rounded-full w-20 h-20"
+        />
         <p className="font-medium text-3xl md:max-w-1/2 lg:max-w-1/3 leading-[150%]">
           {details.name}-{details.followers}Million +Enrollments Worldwide
         </p>

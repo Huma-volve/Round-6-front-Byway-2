@@ -8,7 +8,6 @@ import Revenue from "./features/instructor/Revenue/Revenue";
 import { QueryClient } from "@tanstack/react-query";
 import { QueryClientProvider } from "@tanstack/react-query";
 import PayoutDetails from "./features/instructor/PayoutDetails/PayoutDetails";
-import Continue from "./features/instructor/PayoutDetails/Continue";
 import WithDraw from "./features/instructor/WirhDraw/WithDraw";
 import { Profile } from "./features/instructor/Profile/Profile";
 import EnrolledCourses from "./features/student/EnrolledCourses";
@@ -31,6 +30,9 @@ import Setting from "./features/student/Setting";
 import Favourite from "./features/student/Favourite";
 import PaymentHistory from "./features/student/PaymentHistory";
 import NotificationsEmptyIns from "./features/instructor/NotificationsIns/NotificationsEmptyIns";
+import ShoppingCart from "@/features/student/ShoppingCart";
+import Payment from "@/features/student/Payment";
+import PaymentSuccess from "@/features/student/PaymentSuccess";
 import StudentCourseDetails from './features/student/courseDetails/CourseDetails';
 import StudentInstractordetails from "./features/student/StudentInstractordetails";
 
@@ -48,6 +50,7 @@ import {
   ForgetPass,
 } from "./features/Auth";
 import { Payments, Withdrawals } from "./features/Dashboard";
+import ViewFullReview from "./features/Dashboard/ReviewsRatings/ViewFullReview";
 
 
 const client = new QueryClient();
@@ -84,12 +87,18 @@ const router = createBrowserRouter([
       { path: "/student/setting/payment-methods", element: <PaymentMethods /> },
       { path: "/student/payment-history", element: <PaymentHistory /> },
       { path: "/student/favourites", element: <Favourite /> },
+      { path: "/student/notfications", element: <Notifications /> },
+      { path: "/student/enrolledCourses", element: <EnrolledCourses /> },
+      { path: "/student/enrolledCourseDetails/", element: <EnrolledCourseDetails /> },
+      { path: "/student/enrolledLessonVideo/", element: <EnrolledLessonVideo /> },
+      { path: "/student/shoppingCart/", element: <ShoppingCart /> },
+      { path: "/student/payment/", element: <Payment /> },
+      { path: "/student/payment/success", element: <PaymentSuccess /> },
       { path: "/student/notifications", element: <Notifications /> },
       { path: "/instructors/dashboard", element: <InstructorPage /> },
       { path: "/instructors/courses/:id/lessons", element: <CourseDetails /> },
       { path: "/instructors/Review", element: <Review /> },
       { path: "/instructors/Revenue", element: <Revenue /> },
-      { path: "/instructors/Continue", element: <Continue /> },
       { path: "/instructors/PayoutDetails", element: <PayoutDetails /> },
       {
         path: "/instructors/NotificationsEmptyIns",
@@ -117,19 +126,12 @@ const router = createBrowserRouter([
       { path: "/paymentsRevenue/withdrawals/:id", element: <Withdrawals /> },
       { path: "/paymentsRevenue/payments/:id", element: <Payments /> },
       { path: "/reviewsRatings", element: <ReviewsRatings /> },
+      { path: "/reviewsRatings/viewFullReview/:id", element: <ViewFullReview /> },
       { path: "/platformSettings", element: <PlatformSettings /> },
       { path: "/reportsAnalytics", element: <ReportsAnalytics /> },
-      { path: "/userProfile", element: <UserProfile /> },
+      { path: "/userProfile/:id", element: <UserProfile /> },
       { path: "*", element: <NotFound /> },
-      { path: "/student/enrolledCourses", element: <EnrolledCourses /> },
-      {
-        path: "/student/enrolledCourseDetails/",
-        element: <EnrolledCourseDetails />,
-      },
-      {
-        path: "/student/enrolledLessonVideo/",
-        element: <EnrolledLessonVideo />,
-      },
+
     ],
   },
 ]);
