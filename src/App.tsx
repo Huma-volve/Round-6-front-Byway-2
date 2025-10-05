@@ -71,7 +71,6 @@ const router = createBrowserRouter([
       { path: "/instructors/dashboard", element: <InstructorPage /> },
       { path: "/instructors/Review", element: <Review /> },
       { path: "/instructors/Revenue", element: <Revenue /> },
-      { path: "/instructors/Continue", element: <Continue /> },
       { path: "/instructors/PayoutDetails", element: <PayoutDetails /> },
       { path: "/instructors/NotificationsEmptyIns", element: <NotificationsEmptyIns /> },
       { path: "/instructors/WithDraw", element: <WithDraw /> },
