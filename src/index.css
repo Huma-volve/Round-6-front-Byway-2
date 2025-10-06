@@ -145,8 +145,14 @@
   }
 }
 
+@utility hover-outline {
+  background: #f5f5f5;
+  color: #222;
+  border: 1px solid #222;
+}
+
 .active {
-  @apply text-blue-600
+  @apply text-blue-600;
 }
 
 body {

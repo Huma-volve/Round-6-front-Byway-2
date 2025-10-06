@@ -296,7 +296,7 @@ const InstructorPage = () => {
   }, []);
 
   return (
-    <div className="mt-40">
+    <div className="pt-4">
       {/* The header */}
       <header className="flex flex-col md:flex-row justify-between gap-16 mt-10 mb-24">
         <div className="text-gray-700 text-2xl font-medium">
@@ -322,19 +322,19 @@ const InstructorPage = () => {
           <Avatar color="blue" username={instructorUser.name} />
           <a
             href={instructorUser.links.website}
-            className="w-full transition duration-300 text-blue-website mt-11 p-2 text-center rounded-[8px] border cursor-pointer border-gray-900 bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50"
+            className="w-full transition duration-300 text-blue-website mt-11 p-2 text-center rounded-[8px] border cursor-pointer border-gray-900 bg-background shadow-xs hover:hover-outline"
           >
             Website
           </a>
           <a
             href={instructorUser.links.twitter}
-            className="w-full transition duration-300 text-blue p-2 text-center rounded-[8px] border cursor-pointer border-gray-900 bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50"
+            className="w-full transition duration-300 text-blue p-2 text-center rounded-[8px] border cursor-pointer border-gray-900 bg-background shadow-xs hover:hover-outline"
           >
             Twitter
           </a>
           <a
             href={instructorUser.links.youtube}
-            className="w-full transition duration-300 text-red p-2 text-center rounded-[8px] border cursor-pointer border-gray-900 bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50"
+            className="w-full transition duration-300 text-red p-2 text-center rounded-[8px] border cursor-pointer border-gray-900 bg-background shadow-xs hover:hover-outline"
           >
             Youtube
           </a>

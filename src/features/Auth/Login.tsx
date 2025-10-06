@@ -5,6 +5,7 @@ import facebookIcon from "@/assets/icons/facebook.svg";
 import googleIcon from "@/assets/icons/google.svg";
 import microsoftIcon from "@/assets/icons/microsoft.svg";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 export default function Login() {
   const Values = {
@@ -20,10 +21,10 @@ export default function Login() {
 
   const validationSchema = Yup.object({
     email: Yup.string()
-      .email("email is not correct")
-      .required("email required"),
+      .email("Invalid email address")
+      .required("Email required"),
     password: Yup.string()
-      .min(6, "The password must be at least 6 characters long")
+      .min(8, "Password must be at least 8 characters long")
       .required("Password required"),
   });
 
@@ -33,9 +34,11 @@ export default function Login() {
   };
 
   return (
-    <div className="flex items-center justify-start ">
-      <div className="w-170 pl-15 space-y-7 ">
-        <h1 className="text-2xl font-semibold">Sign in to your account</h1>
+    <div className="grid grid-cols-2 gap-6 px-2 mb-30 mt-10">
+      <div className="col-span-2 md:col-span-1">
+        <h1 className="text-3xl font-semibold mb-10">
+          Sign in to your account
+        </h1>
         <Formik
           initialValues={Values}
           validationSchema={validationSchema}
@@ -80,36 +83,39 @@ export default function Login() {
               </div>
             </div>
 
-            <button
+            <Button
               type="submit"
-              className="w-24 bg-[#5BAE61] text-white py-3 rounded-lg hover:bg-green-700 transition"
+              className="bg-green text-white text-sm font-medium py-3 px-6 w-full sm:w-fit rounded-lg"
             >
               Sign In
-            </button>
-
-            <div className="flex items-center p2-3">
-              <hr className="flex-grow border-gray-300" />
-              <span className="px-3 text-gray-400 text-sm">Sign in with</span>
-              <hr className="flex-grow border-gray-300" />
-            </div>
-
-            <div className="flex space-x-10">
-              {socialButtons.map((btn, index) => (
-                <a
-                  key={index}
-                  href={btn.href}
-                  className="flex items-center border rounded-lg px-4 py-2 hover:bg-gray-50"
-                >
-                  <img src={btn.src} alt={btn.label} className="w-5 h-5 mr-2" />
-                  <span>{btn.label}</span>
-                </a>
-              ))}
-            </div>
+            </Button>
           </Form>
         </Formik>
+        <div className="flex items-center gap-3.5 mb-6 mt-10">
+          <hr className="flex-grow border-gray-300" />
+          <span className="px-3 text-gray-400 text-sm">Sign in with</span>
+          <hr className="flex-grow border-gray-300" />
+        </div>
+
+        <div className="flex flex-col sm:flex-row w-full gap-4">
+          {socialButtons.map((btn, index) => (
+            <a
+              key={index}
+              href={btn.href}
+              className="flex flex-1 justify-center rounded-lg gap-2 items-center py-3 h-fit border border-[#B2B5C4] hover:bg-accent hover:text-accent-foreground"
+            >
+              <img src={btn.src} alt={btn.label} className="w-5 h-5 mr-2" />
+              <span>{btn.label}</span>
+            </a>
+          ))}
+        </div>
       </div>
 
-      <img src={loginstimg} alt="Login" className="w-170" />
+      <img
+        src={loginstimg}
+        alt="Login"
+        className="col-span-1 rounded-xl hidden md:block h-full w-full object-cover"
+      />
     </div>
   );
 }

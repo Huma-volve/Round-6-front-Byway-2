@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router";
 import { Star } from "lucide-react";
-import image from "../../../assets/images/java.png"
+import image from "../../../assets/images/java.png";
 
 const courses = [
   {
@@ -24,27 +24,27 @@ const courses = [
     name: "Cybersecurity",
     description: "Protect systems with ethical hacking skills.",
   },
-   {
+  {
     id: 5,
     name: "Cybersecurity",
     description: "Protect systems with ethical hacking skills.",
   },
-   {
+  {
     id: 6,
     name: "Cybersecurity",
     description: "Protect systems with ethical hacking skills.",
   },
-   {
+  {
     id: 7,
     name: "Cybersecurity",
     description: "Protect systems with ethical hacking skills.",
   },
-   {
+  {
     id: 8,
     name: "Cybersecurity",
     description: "Protect systems with ethical hacking skills.",
   },
-   {
+  {
     id: 9,
     name: "Cybersecurity",
     description: "Protect systems with ethical hacking skills.",
@@ -62,9 +62,13 @@ export default function Courses() {
       </div>
       <div className="grid  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 gap-y-10">
         {courses.map((course) => (
-          <div className="card">
+          <div className="card" key={course.id}>
             <Link to="student/StudentCourseDetails" className="rounded-lg">
-              <img src={course.image || image} alt={course.name} className="w-full pb-3" />
+              <img
+                src={course.image || image}
+                alt={course.name}
+                className="w-full pb-3"
+              />
             </Link>
             <div className="border border-gray-[#E2E8F0]  p-4 rounded-2xl shadow shadow-blue-500/12 grid gap-0.5">
               <h3 className="text-gray-900 font-semibold text-lg">

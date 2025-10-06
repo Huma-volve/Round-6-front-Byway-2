@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import otpimg from "@/assets/images/otp.png";
+import { Button } from "@/components/ui/button";
 
 export default function Otp() {
   const [otp, setOtp] = useState<string[]>(Array(6).fill(""));
@@ -33,8 +34,8 @@ export default function Otp() {
   };
 
   return (
-    <div className="flex items-center justify-start">
-      <div className="w-170 pl-30 mb-10">
+    <div className="grid grid-cols-2 items-center gap-6 mb-30 mt-10">
+      <div className="col-span-2 md:col-span-1 mx-auto">
         <div className="my-15 space-y-5">
           <h1 className="text-3xl font-semibold ml-4">Enter OTP</h1>
           <p className="text-sm text-gray-400 w-65">
@@ -63,13 +64,13 @@ export default function Otp() {
 
         {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
 
-        <button
+        <Button
           type="button"
           onClick={handleContinue}
-          className="block w-60 text-center bg-[#5BAE61] text-white py-3 rounded-lg hover:bg-green-700 transition"
+          className="bg-green text-white text-sm font-medium py-3 px-6 w-full rounded-lg"
         >
           Continue
-        </button>
+        </Button>
 
         <p className="text-sm text-gray-500 mt-4">
           Didn’t receive code?{" "}
@@ -83,7 +84,11 @@ export default function Otp() {
         </p>
       </div>
 
-      <img src={otpimg} alt="otp" className="w-120 mr-30" />
+      <img
+        src={otpimg}
+        alt="otp"
+        className="col-span-1 rounded-xl hidden md:block h-full w-full object-cover"
+      />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import * as Yup from "yup";
 import Fpass from "@/assets/images/Fpass.png";
 
 import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 export default function ForgetPass() {
   const Values = {
@@ -11,8 +12,8 @@ export default function ForgetPass() {
 
   const validationEmail = Yup.object({
     email: Yup.string()
-      .email("email is not correct")
-      .required("email required"),
+      .email("Invalid email address")
+      .required("Email required"),
   });
   const navigate = useNavigate();
 
@@ -21,27 +22,27 @@ export default function ForgetPass() {
   };
 
   return (
-    <div className="flex items-center justify-start ">
-      <div className="w-170 pl-30 mb-10">
-        <div className="my-15 space-y-3">
+    <div className="grid grid-cols-2 gap-6 px-2 mb-30 mt-10">
+      <div className="col-span-2 md:col-span-1">
+        <div className="my-8 space-y-3">
           <h1 className="text-3xl font-semibold">Forgot Password</h1>
-          <p className="text-sm text-gray-400">Recover your account password</p>
+          <p className="text-gray-40 text-base font-medium">
+            Recover your account password
+          </p>
         </div>
         <Formik
           initialValues={Values}
           validationSchema={validationEmail}
           onSubmit={onSubmit}
         >
-          <Form className="space-y-10">
+          <Form className="space-y-4">
             <div>
-              <label className="block mb-2 text-lg font-semibold text-blue-700">
-                E-mail
-              </label>
+              <label className="block mb-2 text-lg font-semibold">E-mail</label>
               <Field
                 type="email"
                 name="email"
                 placeholder="Enter your email"
-                className="w-100 border rounded-2xl px-3 bg-[#fbfbfb] py-3 mb-2 outline-none focus:ring-1 ring-gray-400 "
+                className="w-full border rounded-lg px-3 bg-[#fbfbfb] py-3 mb-2 outline-none focus:ring-1 ring-gray-400 "
               />
               <ErrorMessage
                 name="email"
@@ -50,17 +51,21 @@ export default function ForgetPass() {
               />
             </div>
 
-            <button
+            <Button
               type="submit"
-              className="block w-60 text-center bg-[#5BAE61] text-white py-3 rounded-lg hover:bg-green-700 transition"
+              className="bg-green text-white text-sm font-medium py-3 px-6 w-full sm:w-fit"
             >
               Continue
-            </button>
+            </Button>
           </Form>
         </Formik>
       </div>
 
-      <img src={Fpass} alt="Fpass" className="w-160" />
+      <img
+        src={Fpass}
+        alt="Fpass"
+        className="col-span-1 rounded-xl hidden md:block h-full w-full object-cover"
+      />
     </div>
   );
 }

@@ -33,9 +33,8 @@ import NotificationsEmptyIns from "./features/instructor/NotificationsIns/Notifi
 import ShoppingCart from "@/features/student/ShoppingCart";
 import Payment from "@/features/student/Payment";
 import PaymentSuccess from "@/features/student/PaymentSuccess";
-import StudentCourseDetails from './features/student/courseDetails/CourseDetails';
+import StudentCourseDetails from "./features/student/courseDetails/CourseDetails";
 import StudentInstractordetails from "./features/student/StudentInstractordetails";
-
 
 import UserProfile from "./features/Dashboard/UserProfile/UserProfile";
 import Notifications from "./features/student/Notifications";
@@ -52,7 +51,6 @@ import {
 import { Payments, Withdrawals } from "./features/Dashboard";
 import ViewFullReview from "./features/Dashboard/ReviewsRatings/ViewFullReview";
 
-
 const client = new QueryClient();
 
 const router = createBrowserRouter([
@@ -63,17 +61,25 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <BrowseCourses /> },
       { path: "/Student/login", element: <Login /> },
-      { path: "/Student/StudentCourseDetails", element: <StudentCourseDetails /> },
-      { path: "/Student/StudentInstractordetails", element: <StudentInstractordetails /> },
+      {
+        path: "/Student/StudentCourseDetails",
+        element: <StudentCourseDetails />,
+      },
+      {
+        path: "/Student/StudentInstractordetails",
+        element: <StudentInstractordetails />,
+      },
       {
         path: "/Instructor/forgotPassword",
       },
       { path: "/instructors/dashboard", element: <InstructorPage /> },
       { path: "/instructors/Review", element: <Review /> },
       { path: "/instructors/Revenue", element: <Revenue /> },
-      { path: "/instructors/Continue", element: <Continue /> },
       { path: "/instructors/PayoutDetails", element: <PayoutDetails /> },
-      { path: "/instructors/NotificationsEmptyIns", element: <NotificationsEmptyIns /> },
+      {
+        path: "/instructors/NotificationsEmptyIns",
+        element: <NotificationsEmptyIns />,
+      },
       { path: "/instructors/WithDraw", element: <WithDraw /> },
       { path: "/profile", element: <Profile /> },
       { path: "*", element: <NotFound /> },
@@ -89,8 +95,14 @@ const router = createBrowserRouter([
       { path: "/student/favourites", element: <Favourite /> },
       { path: "/student/notfications", element: <Notifications /> },
       { path: "/student/enrolledCourses", element: <EnrolledCourses /> },
-      { path: "/student/enrolledCourseDetails/", element: <EnrolledCourseDetails /> },
-      { path: "/student/enrolledLessonVideo/", element: <EnrolledLessonVideo /> },
+      {
+        path: "/student/enrolledCourseDetails/",
+        element: <EnrolledCourseDetails />,
+      },
+      {
+        path: "/student/enrolledLessonVideo/",
+        element: <EnrolledLessonVideo />,
+      },
       { path: "/student/shoppingCart/", element: <ShoppingCart /> },
       { path: "/student/payment/", element: <Payment /> },
       { path: "/student/payment/success", element: <PaymentSuccess /> },
@@ -126,12 +138,14 @@ const router = createBrowserRouter([
       { path: "/paymentsRevenue/withdrawals/:id", element: <Withdrawals /> },
       { path: "/paymentsRevenue/payments/:id", element: <Payments /> },
       { path: "/reviewsRatings", element: <ReviewsRatings /> },
-      { path: "/reviewsRatings/viewFullReview/:id", element: <ViewFullReview /> },
+      {
+        path: "/reviewsRatings/viewFullReview/:id",
+        element: <ViewFullReview />,
+      },
       { path: "/platformSettings", element: <PlatformSettings /> },
       { path: "/reportsAnalytics", element: <ReportsAnalytics /> },
       { path: "/userProfile/:id", element: <UserProfile /> },
       { path: "*", element: <NotFound /> },
-
     ],
   },
 ]);
