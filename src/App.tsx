@@ -69,9 +69,6 @@ const router = createBrowserRouter([
         path: "/Student/StudentInstractordetails",
         element: <StudentInstractordetails />,
       },
-      {
-        path: "/Instructor/forgotPassword",
-      },
       { path: "/instructors/dashboard", element: <InstructorPage /> },
       { path: "/instructors/Review", element: <Review /> },
       { path: "/instructors/Revenue", element: <Revenue /> },
