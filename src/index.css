@@ -143,6 +143,9 @@
   html {
     @apply overflow-x-hidden;
   }
+  body {
+    @apply overflow-x-hidden;
+  }
 }
 
 @utility hover-outline {
