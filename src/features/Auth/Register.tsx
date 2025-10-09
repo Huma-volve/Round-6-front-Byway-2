@@ -21,12 +21,16 @@ import googleIcon from "@/assets/icons/google.svg";
 import microsoftIcon from "@/assets/icons/microsoft.svg";
 
 const formSchema = z.object({
-  firstname: z.string().min(1),
-  lastname: z.string().min(1),
-  username: z.string().min(1),
-  email: z.string(),
-  password: z.string().min(1),
-  confirmpassword: z.string().min(1),
+  firstname: z.string().min(1, { message: "First name is required" }),
+  lastname: z.string().min(1, { message: "Last name is required" }),
+  username: z.string().min(1, { message: "Please enter a username" }),
+  email: z.string().email({ message: "Invalid email address" }),
+  password: z
+    .string()
+    .min(8, { message: "Password must be at least 8 characters long" }),
+  confirmpassword: z
+    .string()
+    .min(8, { message: "Please confirm your password" }),
 });
 
 const Register = () => {
@@ -41,6 +45,14 @@ const Register = () => {
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      firstname: "",
+      lastname: "",
+      username: "",
+      email: "",
+      password: "",
+      confirmpassword: "",
+    },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
@@ -58,7 +70,7 @@ const Register = () => {
   }
 
   return (
-    <div className="grid grid-cols-5 gap-12 px-2 mb-40 mt-40">
+    <div className="grid grid-cols-5 gap-12 px-2 mb-30 mt-10">
       <div className="md:col-span-3 col-span-5">
         <h1 className="font-semibold text-3xl text-center">
           Create {role ? role.charAt(0).toUpperCase() + role.slice(1) : ""}{" "}
@@ -100,7 +112,7 @@ const Register = () => {
                   name="lastname"
                   render={({ field }) => (
                     <FormItem className="flex-grow-1">
-                      <FormLabel></FormLabel>
+                      <FormLabel className="h-7"></FormLabel>
                       <FormControl>
                         <Input
                           className="mt-auto"

@@ -2,7 +2,7 @@ import avatar from "@/assets/images/admin.jpg";
 import { CourseCard } from "@/components/shared";
 import image from "@/assets/images/course-image.png";
 import ReviewCard from "./../../components/shared/ReviewCard";
-import BreadcrumbIns  from '@/components/shared/BreadcrumbIns';
+import BreadcrumbIns from "@/components/shared/BreadcrumbIns";
 
 const details = {
   id: 1,
@@ -86,21 +86,23 @@ const details = {
 };
 
 const navigate = {
-    to:"/",
-    navigateTO:"Browes Course",
-    name:"Instractor details"
-
-}
-
+  to: "/",
+  navigateTO: "Browes Course",
+  name: "Instractor details",
+};
 
 export default function StudentInstractordetails() {
   return (
     <div className="container mx-auto px-10 sm:p-0">
       <div className="pb-10 ps-5">
-        <BreadcrumbIns  navigate={navigate}/>
+        <BreadcrumbIns navigate={navigate} />
       </div>
       <div className="flex items-center gap-4 ps-5 ">
-        <img src={details.image || avatar} alt="" className="rounded-full w-20 h-20" />
+        <img
+          src={details.image || avatar}
+          alt=""
+          className="rounded-full w-20 h-20"
+        />
         <p className="font-medium text-3xl md:max-w-1/2 lg:max-w-1/3 leading-[150%]">
           {details.name}-{details.followers}Million +Enrollments Worldwide
         </p>
