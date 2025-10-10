@@ -43,7 +43,7 @@ const ResetPassword = () => {
           <code className="text-white">{JSON.stringify(values, null, 2)}</code>
         </pre>
       );
-      navigate("/instructors/dashboard");
+      navigate("/instructor/dashboard");
     } catch (error) {
       console.error("Form submission error", error);
       toast.error("Failed to submit the form. Please try again.");
