@@ -185,7 +185,7 @@ export default function Navbar() {
                     <Button variant="ghost" size="icon">
                       <IoHeartOutline />
                     </Button>
-                    <Link to="/instructors/NotificationsEmptyIns">
+                    <Link to="/instructor/NotificationsEmptyIns">
                       <Button variant="ghost" size="icon">
                         <IoNotificationsOutline />
                       </Button>
@@ -336,7 +336,7 @@ export default function Navbar() {
               <Button variant="ghost" size="icon">
                 <IoHeartOutline />
               </Button>
-              <Link to="/instructors/NotificationsEmptyIns">
+              <Link to="/instructor/NotificationsEmptyIns">
                 <Button variant="ghost" size="icon">
                   <IoNotificationsOutline />
                 </Button>

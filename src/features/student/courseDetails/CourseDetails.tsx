@@ -87,7 +87,7 @@ export default function StudentCourseDetails() {
         <span className="text-gray-700 text-lg pt-2 pb-5">
           Created by{" "}
           <Link
-            to="/Student/instructordetails"
+            to="/student/instructordetails"
             className="text-[#2563eb] hover:underline"
           >
             {details.instructor}

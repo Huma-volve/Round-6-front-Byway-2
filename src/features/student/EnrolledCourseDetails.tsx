@@ -94,7 +94,7 @@ const EnrolledCourseDetails = () => {
             <p className="text-md text-blue">
               Instructor:{" "}
               <Link
-                to={`/Student/instructordetails`}
+                to={`/student/instructordetails`}
                 className="text-[#2563eb] hover:underline"
               >
                 {instructorName}

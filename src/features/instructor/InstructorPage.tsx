@@ -379,7 +379,7 @@ const InstructorPage = () => {
           >
             {coursesList.map((courseObj) => (
               <SwiperSlide key={courseObj.id} className="!w-fit">
-                <Link to={`/instructors/courses/${courseObj.id}/lessons`}>
+                <Link to={`/instructor/courses/${courseObj.id}/lessons`}>
                   <CourseCard courseData={courseObj} />
                 </Link>
               </SwiperSlide>
