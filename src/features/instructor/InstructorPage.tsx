@@ -18,6 +18,7 @@ import { calculateRatingStats } from "@/lib/utils";
 import { Rating, RatingButton } from "@/components/ui/shadcn-io/rating";
 import { FaStar } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
+import { useObserver } from "@/hooks/useObserver";
 
 // TODO replace these with dynamic data from the API
 const coursesList: Course[] = [
@@ -294,11 +295,20 @@ const InstructorPage = () => {
     const stats = calculateRatingStats(reviewsList);
     setRatingStats(stats);
   }, []);
+  // Basic animation
+  const headerAnim = useObserver("fade-up");
+  const coursesAnim = useObserver("fade-up");
+  const reviewsAnim = useObserver("fade-up");
 
   return (
-    <div className="pt-4">
+    <div className="pt-6">
       {/* The header */}
-      <header className="flex flex-col md:flex-row justify-between gap-16 mt-10 mb-24">
+      <header
+        ref={headerAnim.ref}
+        className={`animate-hidden ${headerAnim.animation} ${
+          headerAnim.isVisible ? "show" : ""
+        } flex flex-col md:flex-row justify-between gap-16 mt-10 mb-24`}
+      >
         <div className="text-gray-700 text-2xl font-medium">
           <h1 className="mb-2">Instructor</h1>
           <p className="text-[32px] font-semibold capitalize">
@@ -342,7 +352,12 @@ const InstructorPage = () => {
       </header>
 
       {/* Courses */}
-      <section className="mb-30 [clip-path:inset(0px_-60%_-5px_-5px)]">
+      <section
+        ref={coursesAnim.ref}
+        className={`animate-hidden ${coursesAnim.animation} ${
+          coursesAnim.isVisible ? "show" : ""
+        } mb-30 [clip-path:inset(0px_-60%_-5px_-5px)]`}
+      >
         <h2 className="text-xl md:text-2xl mb-3 text-blue">Your courses</h2>
         {isCoursesLoading ? (
           <ul className="flex gap-4">
@@ -364,7 +379,7 @@ const InstructorPage = () => {
           >
             {coursesList.map((courseObj) => (
               <SwiperSlide key={courseObj.id} className="!w-fit">
-                <Link to={`/instructors/courses/${courseObj.id}/lessons`}>
+                <Link to={`/instructor/courses/${courseObj.id}/lessons`}>
                   <CourseCard courseData={courseObj} />
                 </Link>
               </SwiperSlide>
@@ -374,7 +389,12 @@ const InstructorPage = () => {
       </section>
 
       {/* Reviews */}
-      <section className="mb-30">
+      <section
+        ref={reviewsAnim.ref}
+        className={`animate-hidden ${reviewsAnim.animation} ${
+          reviewsAnim.isVisible ? "show" : ""
+        } mb-30`}
+      >
         <h2 className="text-xl md:text-2xl mb-3 text-blue">Learner Reviews</h2>
         <div className="flex md:flex-row flex-col gap-8 lg:gap-16">
           <div>

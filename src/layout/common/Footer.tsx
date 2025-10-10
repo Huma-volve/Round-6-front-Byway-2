@@ -89,7 +89,7 @@ export default function Footer() {
                 href={icon.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-11 h-11 bg-white hover:bg-[#e7e6e6] transition-all rounded-full flex items-center justify-center"
+                className="w-11 h-11 bg-white hover:bg-[#e7e6e6] transition-all duration-200 rounded-full flex items-center justify-center"
               >
                 <img src={icon.src} alt={icon.alt} className="w-6 h-6" />
               </a>

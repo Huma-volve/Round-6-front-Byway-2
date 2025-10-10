@@ -19,6 +19,7 @@ import { useEffect } from "react";
 import facebookIcon from "@/assets/icons/facebook.svg";
 import googleIcon from "@/assets/icons/google.svg";
 import microsoftIcon from "@/assets/icons/microsoft.svg";
+import { useObserver } from "@/hooks/useObserver";
 
 const formSchema = z.object({
   firstname: z.string().min(1, { message: "First name is required" }),
@@ -68,10 +69,18 @@ const Register = () => {
       toast.error("Failed to submit the form. Please try again.");
     }
   }
+  // Basic animation
+  const formAnim = useObserver("slide-left");
+  const imgAnim = useObserver("slide-right");
 
   return (
     <div className="grid grid-cols-5 gap-12 px-2 mb-30 mt-10">
-      <div className="md:col-span-3 col-span-5">
+      <div
+        ref={formAnim.ref}
+        className={`animate-hidden ${formAnim.animation} ${
+          formAnim.isVisible ? "show" : ""
+        } md:col-span-3 col-span-5`}
+      >
         <h1 className="font-semibold text-3xl text-center">
           Create {role ? role.charAt(0).toUpperCase() + role.slice(1) : ""}{" "}
           Account
@@ -252,14 +261,11 @@ const Register = () => {
         </div>
       </div>
       <img
-        className="col-span-2 rounded-xl hidden md:block h-full w-full object-cover"
-        src={
-          role == "student"
-            ? studentImg
-            : role == "instructor"
-            ? instructorImg
-            : adminImg
-        }
+        ref={imgAnim.ref}
+        className={`animate-hidden ${imgAnim.animation} ${
+          imgAnim.isVisible ? "show" : ""
+        } col-span-2 rounded-xl hidden md:block h-full w-full object-cover`}
+        src={role == "student" ? studentImg : instructorImg}
         alt="an image of a person"
       />
     </div>

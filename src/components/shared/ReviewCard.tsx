@@ -7,7 +7,7 @@ import { parseISO } from "date-fns";
 const ReviewCard = ({ reviewData }: { reviewData: Review }) => {
   return (
     <div className="rounded-2xl p-4 lg:p-6 border border-gray-border">
-      <div className="flex gap-4">
+      <div className="flex gap-4 mb-2 sm:mb-0">
         <img
           src={avatar}
           alt="an avatar"
