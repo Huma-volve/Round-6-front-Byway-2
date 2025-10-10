@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router";
+import { useObserver } from "@/hooks/useObserver";
 
 const formSchema = z.object({
   password: z
@@ -49,9 +50,18 @@ const ResetPassword = () => {
     }
   }
 
+  // Basic animation
+  const formAnim = useObserver("slide-left");
+  const imgAnim = useObserver("slide-right");
+
   return (
     <div className="grid grid-cols-2 gap-6 px-2 mb-30 mt-10">
-      <div className="col-span-2 md:col-span-1">
+      <div
+        ref={formAnim.ref}
+        className={`animate-hidden ${formAnim.animation} ${
+          formAnim.isVisible ? "show" : ""
+        } col-span-2 md:col-span-1`}
+      >
         <h1 className="font-semibold text-3xl text-center mb-4">
           Create a New Password
         </h1>
@@ -112,9 +122,12 @@ const ResetPassword = () => {
         </Form>
       </div>
       <img
+        ref={imgAnim.ref}
         src={Fpass}
         alt="a shield"
-        className="col-span-1 rounded-xl hidden md:block h-full w-full object-cover"
+        className={`animate-hidden ${imgAnim.animation} ${
+          imgAnim.isVisible ? "show" : ""
+        } col-span-1 rounded-xl hidden md:block h-full w-full object-cover`}
       />
     </div>
   );

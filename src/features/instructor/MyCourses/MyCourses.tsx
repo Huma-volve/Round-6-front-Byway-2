@@ -19,6 +19,7 @@ import { ChevronRight, Filter, Plus } from "lucide-react";
 import { Link } from "react-router";
 import cardCourses from "../../../assets/images/cardCourses.png";
 import type { Course } from "@/types/Mohamed/profile";
+import { useObserver } from "@/hooks/useObserver";
 
 const courses: Course[] = [
   {
@@ -76,6 +77,9 @@ const CourseCard = ({ course }: { course: Course }) => {
 };
 
 export const MyCourses = () => {
+  // Basic animation
+  const sectionAnim = useObserver("fade-up");
+
   return (
     <div className="min-h-screen">
       <div className="mx-auto py-8">
@@ -134,7 +138,12 @@ export const MyCourses = () => {
         </div>
 
         {/* Course Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-8">
+        <div
+          ref={sectionAnim.ref}
+          className={`animate-hidden ${sectionAnim.animation} ${
+            sectionAnim.isVisible ? "show" : ""
+          } grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-8`}
+        >
           {courses.map((course) => (
             <CourseCard key={course.id} course={course} />
           ))}

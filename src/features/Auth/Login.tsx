@@ -6,6 +6,7 @@ import googleIcon from "@/assets/icons/google.svg";
 import microsoftIcon from "@/assets/icons/microsoft.svg";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useObserver } from "@/hooks/useObserver";
 
 export default function Login() {
   const Values = {
@@ -33,9 +34,18 @@ export default function Login() {
     alert(`Hello ${values.email}`);
   };
 
+  // Basic animation
+  const formAnim = useObserver("slide-left");
+  const imgAnim = useObserver("slide-right");
+
   return (
     <div className="grid grid-cols-2 gap-6 px-2 mb-30 mt-10">
-      <div className="col-span-2 md:col-span-1">
+      <div
+        ref={formAnim.ref}
+        className={`animate-hidden ${formAnim.animation} ${
+          formAnim.isVisible ? "show" : ""
+        } col-span-2 md:col-span-1`}
+      >
         <h1 className="text-3xl font-semibold mb-10">
           Sign in to your account
         </h1>
@@ -112,9 +122,12 @@ export default function Login() {
       </div>
 
       <img
+        ref={imgAnim.ref}
         src={loginstimg}
         alt="Login"
-        className="col-span-1 rounded-xl hidden md:block h-full w-full object-cover"
+        className={`animate-hidden ${imgAnim.animation} ${
+          imgAnim.isVisible ? "show" : ""
+        } col-span-1 rounded-xl hidden md:block h-full w-full object-cover`}
       />
     </div>
   );
