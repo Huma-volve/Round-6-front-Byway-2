@@ -1,8 +1,8 @@
-import avatar from "@/assets/images/admin.jpg";
-import { CourseCard } from "@/components/shared";
+import { Avatar, CourseCard } from "@/components/shared";
 import image from "@/assets/images/course-image.png";
 import ReviewCard from "./../../components/shared/ReviewCard";
 import BreadcrumbIns from "@/components/shared/BreadcrumbIns";
+import { useObserver } from "@/hooks/useObserver";
 
 const details = {
   id: 1,
@@ -92,28 +92,53 @@ const navigate = {
 };
 
 export default function StudentInstractordetails() {
+  // Basic animation
+  const headerAnim = useObserver("fade-up");
+  const statAnim = useObserver("fade-up");
+  const aboutAnim = useObserver("fade-up");
+  const coursesAnim = useObserver("fade-up");
+  const reviewsAnim = useObserver("fade-up");
+
   return (
-    <div className="container mx-auto px-10 sm:p-0">
+    <div className="container mx-auto sm:p-0">
       <div className="pb-10 ps-5">
         <BreadcrumbIns navigate={navigate} />
       </div>
-      <div className="flex items-center gap-4 ps-5 ">
-        <img
-          src={details.image || avatar}
-          alt=""
-          className="rounded-full w-20 h-20"
-        />
-        <p className="font-medium text-3xl md:max-w-1/2 lg:max-w-1/3 leading-[150%]">
-          {details.name}-{details.followers}Million +Enrollments Worldwide
+      {/* header */}
+      <div
+        ref={headerAnim.ref}
+        className={`animate-hidden ${headerAnim.animation} ${
+          headerAnim.isVisible ? "show" : ""
+        } flex flex-wrap items-center gap-6 ps-5`}
+      >
+        {details.image ? (
+          <img
+            src={details.image}
+            alt="instructor's image"
+            className="rounded-full w-20 h-20"
+          />
+        ) : (
+          <Avatar username={details.name} color="gray" />
+        )}
+
+        <p className="font-medium text-2xl md:text-3xl leading-[150%]">
+          {details.name} - {details.followers}Million+ Enrollments Worldwide
         </p>
       </div>
-      <div className="flex text-center gap-32 py-14 ps-5">
+      {/* stat */}
+      <div
+        ref={statAnim.ref}
+        className={`animate-hidden ${statAnim.animation} ${
+          statAnim.isVisible ? "show" : ""
+        } flex text-center gap-6 md:gap-32 py-14 ps-5`}
+      >
         <div>
           <p className="font-semibold text-2xl text-gray-900">
             {details.students}+
           </p>
           <p className="text-gray-800">number of students</p>
         </div>
+
         <div>
           <p className="font-semibold text-2xl text-gray-900">
             {details.reviews.length}+
@@ -121,13 +146,25 @@ export default function StudentInstractordetails() {
           <p className="text-gray-800">number of reviews</p>
         </div>
       </div>
-      <div className="">
+      {/* about */}
+      <div
+        ref={aboutAnim.ref}
+        className={`animate-hidden ${aboutAnim.animation} ${
+          aboutAnim.isVisible ? "show" : ""
+        }`}
+      >
         <h2 className="font-semibold text-3xl pb-4">About me</h2>
-        <p className="text-gray-800 text-2xl max-w-1/2 leading-[150%]">
+        <p className="text-gray-800 text-2xl max-w-[613px] leading-[150%]">
           {details.description}
         </p>
       </div>
-      <div className="py-14">
+      {/* courses */}
+      <div
+        ref={coursesAnim.ref}
+        className={`animate-hidden ${coursesAnim.animation} ${
+          coursesAnim.isVisible ? "show" : ""
+        } py-14`}
+      >
         <h2 className="font-semibold text-3xl pb-4">My Courses</h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 gap-y-10">
           {details.courses?.map((course) => (
@@ -135,8 +172,13 @@ export default function StudentInstractordetails() {
           ))}
         </div>
       </div>
-
-      <div className="grid gap-5 pt-10">
+      {/* reviews */}
+      <div
+        ref={reviewsAnim.ref}
+        className={`animate-hidden ${reviewsAnim.animation} ${
+          reviewsAnim.isVisible ? "show" : ""
+        } grid gap-5 pt-10`}
+      >
         {details.reviews?.map((review) => (
           <ReviewCard key={review.id} reviewData={review} />
         ))}

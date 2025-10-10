@@ -154,6 +154,24 @@
   border: 1px solid #222;
 }
 
+@utility animate-hidden {
+  opacity: 0;
+  transition: all 0.6s ease-out;
+}
+@utility show {
+  opacity: 1 !important;
+  transform: translate(0, 0) !important;
+}
+@utility fade-up {
+  transform: translate(0, 30px);
+}
+@utility slide-left {
+  transform: translate(-50px, 0);
+}
+@utility slide-right {
+  transform: translate(50px, 0);
+}
+
 .active {
   @apply text-blue-600;
 }

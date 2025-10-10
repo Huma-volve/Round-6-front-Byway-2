@@ -4,6 +4,7 @@ import Fpass from "@/assets/images/Fpass.png";
 
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useObserver } from "@/hooks/useObserver";
 
 export default function ForgetPass() {
   const Values = {
@@ -21,9 +22,18 @@ export default function ForgetPass() {
     navigate("/otp");
   };
 
+  // Basic animation
+  const formAnim = useObserver("slide-left");
+  const imgAnim = useObserver("slide-right");
+
   return (
     <div className="grid grid-cols-2 gap-6 px-2 mb-30 mt-10">
-      <div className="col-span-2 md:col-span-1">
+      <div
+        ref={formAnim.ref}
+        className={`animate-hidden ${formAnim.animation} ${
+          formAnim.isVisible ? "show" : ""
+        } col-span-2 md:col-span-1`}
+      >
         <div className="my-8 space-y-3">
           <h1 className="text-3xl font-semibold">Forgot Password</h1>
           <p className="text-gray-40 text-base font-medium">
@@ -62,9 +72,12 @@ export default function ForgetPass() {
       </div>
 
       <img
+        ref={imgAnim.ref}
         src={Fpass}
         alt="Fpass"
-        className="col-span-1 rounded-xl hidden md:block h-full w-full object-cover"
+        className={`animate-hidden ${imgAnim.animation} ${
+          imgAnim.isVisible ? "show" : ""
+        } col-span-1 rounded-xl hidden md:block h-full w-full object-cover`}
       />
     </div>
   );

@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import otpimg from "@/assets/images/otp.png";
 import { Button } from "@/components/ui/button";
+import { useObserver } from "@/hooks/useObserver";
 
 export default function Otp() {
   const [otp, setOtp] = useState<string[]>(Array(6).fill(""));
@@ -33,9 +34,18 @@ export default function Otp() {
     navigate("/reset-password");
   };
 
+  // Basic animation
+  const formAnim = useObserver("slide-left");
+  const imgAnim = useObserver("slide-right");
+
   return (
     <div className="grid grid-cols-2 items-center gap-6 mb-30 mt-10">
-      <div className="col-span-2 md:col-span-1 mx-auto">
+      <div
+        ref={formAnim.ref}
+        className={`animate-hidden ${formAnim.animation} ${
+          formAnim.isVisible ? "show" : ""
+        } col-span-2 md:col-span-1 mx-auto`}
+      >
         <div className="my-15 space-y-5">
           <h1 className="text-3xl font-semibold ml-4">Enter OTP</h1>
           <p className="text-sm text-gray-400 w-65">
@@ -85,9 +95,12 @@ export default function Otp() {
       </div>
 
       <img
+        ref={imgAnim.ref}
         src={otpimg}
         alt="otp"
-        className="col-span-1 rounded-xl hidden md:block h-full w-full object-cover"
+        className={`animate-hidden ${imgAnim.animation} ${
+          imgAnim.isVisible ? "show" : ""
+        } col-span-1 rounded-xl hidden md:block h-full w-full object-cover`}
       />
     </div>
   );

@@ -12,7 +12,10 @@ const PayoutDetails = () => {
 
     useEffect(() => {
       const maybeHandler = (event: MouseEvent) => {
-        if (domNode.current && !domNode.current.contains(event.target as Node)) {
+        if (
+          domNode.current &&
+          !domNode.current.contains(event.target as Node)
+        ) {
           handler();
         }
       };
@@ -44,7 +47,11 @@ const PayoutDetails = () => {
   );
 
   // ========== Dropdown للبنك ==========
-  const BankNameDrop = ({ onBankSelect }: { onBankSelect: (bank: string) => void }) => {
+  const BankNameDrop = ({
+    onBankSelect,
+  }: {
+    onBankSelect: (bank: string) => void;
+  }) => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [selected, setSelected] = useState<string>("");
     const domNode = useClickOutside(() => setDropdownOpen(false));
@@ -88,8 +95,16 @@ const PayoutDetails = () => {
             }`}
           >
             <DropdownItem label="CIB" name="bankName" onSelect={handleSelect} />
-            <DropdownItem label="Al-Ahly" name="bankName" onSelect={handleSelect} />
-            <DropdownItem label="Bank of Egypt" name="bankName" onSelect={handleSelect} />
+            <DropdownItem
+              label="Al-Ahly"
+              name="bankName"
+              onSelect={handleSelect}
+            />
+            <DropdownItem
+              label="Bank of Egypt"
+              name="bankName"
+              onSelect={handleSelect}
+            />
           </div>
         </div>
       </section>
@@ -97,7 +112,11 @@ const PayoutDetails = () => {
   };
 
   // ========== Continue Section ==========
-  const Continue = ({ onBankSelect }: { onBankSelect: (bank: string) => void }) => (
+  const Continue = ({
+    onBankSelect,
+  }: {
+    onBankSelect: (bank: string) => void;
+  }) => (
     <section className="flex flex-col gap-6 p-6 rounded-lg shadow-md bg-white border border-gray-200">
       <label htmlFor="AccountNumber" className="flex flex-col gap-2">
         <span className="text-lg font-medium">Account Number</span>
@@ -166,9 +185,21 @@ const PayoutDetails = () => {
                 : "max-h-0 opacity-0 invisible"
             }`}
           >
-            <DropdownItem label="PayPal" name="payment" onSelect={handleSelect} />
-            <DropdownItem label="Bank Transfer" name="payment" onSelect={handleSelect} />
-            <DropdownItem label="Fawry" name="payment" onSelect={handleSelect} />
+            <DropdownItem
+              label="PayPal"
+              name="payment"
+              onSelect={handleSelect}
+            />
+            <DropdownItem
+              label="Bank Transfer"
+              name="payment"
+              onSelect={handleSelect}
+            />
+            <DropdownItem
+              label="Fawry"
+              name="payment"
+              onSelect={handleSelect}
+            />
           </div>
 
           {selected === "Bank Transfer" && (
@@ -201,7 +232,10 @@ const PayoutDetails = () => {
 
       <div className="flex flex-col gap-5 items-baseline">
         <h2 className="text-2xl">Payment Method</h2>
-        <DropDownPayment onPaymentSelect={setPaymentMethod} onBankSelect={setBankName} />
+        <DropDownPayment
+          onPaymentSelect={setPaymentMethod}
+          onBankSelect={setBankName}
+        />
       </div>
 
       <label htmlFor="AccountName" className="flex flex-col gap-2">
@@ -237,12 +271,12 @@ const PayoutDetails = () => {
         />
         Save these details
       </label>
-      <NavLink to={"/instructors/WithDraw"}>
-         <Button
-        onClick={handleClick}
-        className="w-[20%] bg-green-500 hover:bg-green-600 cursor-pointer font-semibold text-lg"
+      <NavLink to={"/instructor/WithDraw"}>
+        <Button
+          onClick={handleClick}
+          className="w-[20%] bg-green-500 hover:bg-green-600 cursor-pointer font-semibold text-lg"
         >
-        Continue
+          Continue
         </Button>
       </NavLink>
     </section>
