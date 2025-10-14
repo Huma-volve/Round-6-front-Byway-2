@@ -1,8 +1,9 @@
-const express = require("express");
+import express from "express";
+import userRoutes from "./routes/userRoutes";
+
 const app = express();
-const userRoutes = require("./routes/userRoutes");
 
 app.use(express.json());
-app.use("/api/users", userRoutes);
+app.use("/users", userRoutes);
 
 export default app;

@@ -1,10 +1,18 @@
-const db = require("../config/db");
+import db from "../config/db";
+import { User } from "../types/types";
 
-exports.getAllUsers = () => {
+export const getAllUsers = (): Promise<User[]> => {
   return new Promise((resolve, reject) => {
-    db.all("SELECT * FROM users", [], (err, rows) => {
-      if (err) reject(err);
-      else resolve(rows);
-    });
+    db.all(
+      "SELECT * FROM users",
+      [],
+      (err: Error | null, rows: User[] | null) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(rows || []);
+        }
+      }
+    );
   });
 };

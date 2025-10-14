@@ -1,6 +1,8 @@
+import { Request, Response } from "express";
+
 const User = require("../models/userModel");
 
-exports.getUsers = async (req, res) => {
+export const getUsers = async (req: Request, res: Response) => {
   try {
     const users = await User.getAllUsers();
     res.json({ success: true, data: users });

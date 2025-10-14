@@ -4,7 +4,7 @@ const INIT_SQL = `
 PRAGMA foreign_keys = ON;
 
 CREATE TABLE IF NOT EXISTS users (
-  id TEXT PRIMARY KEY,
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
   first_name TEXT NOT NULL,
   last_name TEXT NOT NULL,
   username TEXT NOT NULL UNIQUE,
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS experiences (
 );
 
 CREATE TABLE IF NOT EXISTS courses (
-  id TEXT PRIMARY KEY,
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
   title TEXT NOT NULL,
   author_name TEXT NOT NULL,
   average_rating REAL DEFAULT 0,
@@ -122,13 +122,16 @@ CREATE TRIGGER IF NOT EXISTS trg_reviews_after_insert
 AFTER INSERT ON reviews
 BEGIN
   UPDATE courses
-  SET average_rating =
-    (SELECT ROUND(AVG(rating), 2) FROM reviews WHERE course_id = NEW.course_id)
+  SET average_rating = (
+    SELECT ROUND(AVG(rating), 2)
+    FROM reviews
+    WHERE course_id = NEW.course_id
+  )
   WHERE id = NEW.course_id;
 
   UPDATE courses
   SET is_bestseller = CASE
-    WHEN EXISTS(SELECT 1 FROM reviews r WHERE r.course_id = NEW.course_id AND r.rating = 5) THEN 1
+    WHEN (SELECT ROUND(AVG(rating), 2) FROM reviews WHERE course_id = NEW.course_id) = 5 THEN 1
     ELSE 0
   END
   WHERE id = NEW.course_id;
