@@ -295,6 +295,26 @@ const InstructorPage = () => {
     const stats = calculateRatingStats(reviewsList);
     setRatingStats(stats);
   }, []);
+
+  useEffect(() => {
+    async function getUsers() {
+      try {
+        const response = await fetch("http://localhost:5000/users");
+        const data = await response.json();
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    // fetch("http://localhost:5000/users")
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log("Users:", data);
+    //   })
+    //   .catch((err) => console.error(err));
+    getUsers();
+  }, []);
+
   // Basic animation
   const headerAnim = useObserver("fade-up");
   const coursesAnim = useObserver("fade-up");
