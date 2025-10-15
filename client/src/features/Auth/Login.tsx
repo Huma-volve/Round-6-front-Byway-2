@@ -34,6 +34,18 @@ export default function Login() {
     alert(`Hello ${values.email}`);
   };
 
+  const login = async () => {
+    const res = await fetch("http://localhost:5000/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+
+    const data = await res.json();
+    localStorage.setItem("token", data.token);
+    localStorage.setItem("role", data.role);
+  };
+
   // Basic animation
   const formAnim = useObserver("slide-left");
   const imgAnim = useObserver("slide-right");
