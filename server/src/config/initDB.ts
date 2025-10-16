@@ -19,7 +19,17 @@ CREATE TABLE IF NOT EXISTS users (
   facebook_link TEXT,
   is_instructor INTEGER DEFAULT 0,
   website TEXT,
-  created_at TEXT DEFAULT (datetime('now'))
+  created_at TEXT DEFAULT (datetime('now')),
+  role TEXT CHECK(role IN ('student', 'instructor')) DEFAULT 'student',
+  is_verified INTEGER DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS email_verification (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL,
+  otp TEXT NOT NULL,
+  expires_at INTEGER NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 CREATE TABLE IF NOT EXISTS experiences (
