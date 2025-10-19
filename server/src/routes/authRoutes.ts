@@ -1,10 +1,20 @@
 import { Router } from "express";
-import { signup, verifyEmail, login } from "../controllers/authController";
+import {
+  signup,
+  login,
+  resendOtp,
+  verifyOtp,
+  getMe,
+} from "../controllers/authController";
+import { verifyToken } from "../middlewares/authMiddleware";
 
 const router = Router();
 
-router.post("/signup", signup);
-router.post("/verify-email", verifyEmail);
-router.post("/login", login);
+// ✅ Auth Routes
+router.post("/signup", signup); // Register user + return OTP
+router.post("/resend-otp", resendOtp); // Handle expired OTP and generate a new one
+router.post("/verify-otp", verifyOtp); // OTP verification + return JWT + user data
+router.post("/login", login); // Login with email + password, return JWT + user data
+router.get("/me", verifyToken, getMe); // Get the user data after reopening the website
 
 export default router;

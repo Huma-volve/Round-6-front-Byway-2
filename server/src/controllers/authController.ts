@@ -82,57 +82,57 @@ export const signup = (req: Request, res: Response) => {
   );
 };
 
-export const verifyEmail = (req: Request, res: Response) => {
-  const { email, otp } = req.body;
+// export const verifyEmail = (req: Request, res: Response) => {
+//   const { email, otp } = req.body;
 
-  db.get(
-    "SELECT id FROM users WHERE email = ?",
-    [email],
-    (err: Error | null, user: User) => {
-      if (err || !user) {
-        return res.status(404).json({ error: "User not found" });
-      }
+//   db.get(
+//     "SELECT id FROM users WHERE email = ?",
+//     [email],
+//     (err: Error | null, user: User) => {
+//       if (err || !user) {
+//         return res.status(404).json({ error: "User not found" });
+//       }
 
-      db.get(
-        "SELECT * FROM email_verification WHERE user_id = ? AND otp = ?",
-        [user.id, otp],
-        (err: Error | null, verification: any) => {
-          if (err || !verification) {
-            return res.status(400).json({ error: "Invalid OTP" });
-          }
+//       db.get(
+//         "SELECT * FROM email_verification WHERE user_id = ? AND otp = ?",
+//         [user.id, otp],
+//         (err: Error | null, verification: any) => {
+//           if (err || !verification) {
+//             return res.status(400).json({ error: "Invalid OTP" });
+//           }
 
-          if (Date.now() > verification.expires_at) {
-            return res.status(400).json({ error: "OTP expired" });
-          }
+//           if (Date.now() > verification.expires_at) {
+//             return res.status(400).json({ error: "OTP expired" });
+//           }
 
-          // ✅ Mark user as verified
-          db.run("UPDATE users SET is_verified = 1 WHERE id = ?", [user.id]);
+//           // ✅ Mark user as verified
+//           db.run("UPDATE users SET is_verified = 1 WHERE id = ?", [user.id]);
 
-          // ✅ Generate token and return full user data
-          const token = jwt.sign({ id: user.id, email }, JWT_SECRET, {
-            expiresIn: "7d",
-          });
+//           // ✅ Generate token and return full user data
+//           const token = jwt.sign({ id: user.id, email }, JWT_SECRET, {
+//             expiresIn: "7d",
+//           });
 
-          db.get(
-            "SELECT * FROM users WHERE id = ?",
-            [user.id],
-            (err: Error | null, fullUser: User) => {
-              if (err) {
-                return res.status(500).json({ error: "DB error" });
-              }
+//           db.get(
+//             "SELECT * FROM users WHERE id = ?",
+//             [user.id],
+//             (err: Error | null, fullUser: User) => {
+//               if (err) {
+//                 return res.status(500).json({ error: "DB error" });
+//               }
 
-              res.json({
-                message: "Email verified successfully",
-                token,
-                user: fullUser,
-              });
-            }
-          );
-        }
-      );
-    }
-  );
-};
+//               res.json({
+//                 message: "Email verified successfully",
+//                 token,
+//                 user: fullUser,
+//               });
+//             }
+//           );
+//         }
+//       );
+//     }
+//   );
+// };
 
 export const resendOtp = (req: Request, res: Response) => {
   const { user_id } = req.body;
@@ -151,6 +151,57 @@ export const resendOtp = (req: Request, res: Response) => {
         message: "New OTP generated",
         otp: newOtp, // later you will send by email
       });
+    }
+  );
+};
+
+export const verifyOtp = (req: Request, res: Response) => {
+  const { user_id, otp } = req.body;
+
+  db.get(
+    "SELECT * FROM email_verification WHERE user_id = ? AND otp = ?",
+    [user_id, otp],
+    (err: Error | null, verification: any) => {
+      if (err || !verification) {
+        return res.status(400).json({ error: "Invalid OTP" });
+      }
+
+      // ✅ Check Expiration
+      if (Date.now() > verification.expires_at) {
+        return res.status(410).json({ error: "OTP expired" }); // Frontend should trigger resendOtp()
+      }
+
+      // ✅ Fetch user details to include in JWT
+      db.get(
+        "SELECT id, email, role, first_name, last_name, username FROM users WHERE id = ?",
+        [user_id],
+        (err: Error | null, user: any) => {
+          if (err || !user) {
+            return res.status(404).json({ error: "User not found" });
+          }
+
+          // ✅ Generate JWT Token
+          const token = jwt.sign(
+            {
+              id: user.id,
+              email: user.email,
+              role: user.role,
+            },
+            JWT_SECRET,
+            { expiresIn: "7d" }
+          );
+
+          // ✅ Delete OTP after success
+          db.run("DELETE FROM email_verification WHERE user_id = ?", [user_id]);
+
+          // ✅ Return token + user data so frontend logs user in
+          return res.json({
+            message: "OTP verified successfully",
+            token,
+            user, // frontend will store this in context/state
+          });
+        }
+      );
     }
   );
 };
@@ -179,6 +230,21 @@ export const login = (req: Request, res: Response) => {
         token,
         user: sanitizedUser, // Return all user data except password
       });
+    }
+  );
+};
+
+export const getMe = (req: Request, res: Response) => {
+  const userData = (req as any).user;
+
+  db.get(
+    "SELECT id, first_name, last_name, username, email, profile_picture, headline, about, x_link,linkedin_link, youtube_link, facebook_link, is_instructor, website, created_at, role FROM users WHERE id = ?",
+    [userData.id],
+    (err: Error | null, user: any) => {
+      if (err || !user) {
+        return res.status(404).json({ error: "User not found" });
+      }
+      return res.json({ user });
     }
   );
 };
